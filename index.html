@@ -168,7 +168,7 @@ body, h1,h2,h3,h4,h5,h6 {font-family: "Montserrat", sans-serif}
 				renderer = new THREE.WebGLRenderer( { antialias: true } );
 				renderer.setClearColor( 0xffffff );
 				renderer.setPixelRatio( window.devicePixelRatio );
-				renderer.setSize( 500, 750 );
+				renderer.setSize( window.innerWidth/2, window.innerHeight/2 );
 				container.appendChild( renderer.domElement );
 
 //
