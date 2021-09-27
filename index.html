@@ -151,11 +151,10 @@ body, h1,h2,h3,h4,h5,h6 {font-family: "Montserrat", sans-serif}
 
 //
 
-				renderer = new THREE.WebGLRenderer();
-				renderer.setSize(800, 600);
+				renderer = new THREE.WebGLRenderer( { antialias: true } );
 				renderer.setClearColor( 0xffffff );
 				renderer.setPixelRatio( window.devicePixelRatio );
-				renderer.setSize( window.innerWidth, window.innerHeight );
+				renderer.setSize( 500, 750 );
 				container.appendChild( renderer.domElement );
 
 //
