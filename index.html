@@ -105,14 +105,15 @@ body, h1,h2,h3,h4,h5,h6 {font-family: "Montserrat", sans-serif}
       </div>
     </div>
     
-	  <header class="w3-row-padding" style="margin:0 -16px">
-    <h2>Vizualizace modelu ve formátu DAE v rozhraní Three.js</h2>
-	<h3>Ropice</h3>
+	   <header class="w3-container w3-center">
+    <h2>Model</h2>
+	<h3>TBA</h3>
 	<div class="w3-container">
-    <p>Autorem modelu je Ing. Zdeněk Poloprutský.</p>  
+    <p>TBA</p>  
     </div>
 	</header>
-    <div id="container"></div> 
+   
+		<div id="container"></div> 
     <script>
 			var container, stats, clock, controls;
 			var camera, scene, renderer;
@@ -155,7 +156,7 @@ body, h1,h2,h3,h4,h5,h6 {font-family: "Montserrat", sans-serif}
 //
 
 				renderer = new THREE.WebGLRenderer( { antialias: true } );
-renderer.setClearColor( #e9e5e3 );
+renderer.setClearColor( 0xffffff );
 				renderer.setPixelRatio( window.devicePixelRatio );
 				renderer.setSize( window.innerWidth, window.innerHeight );
 				container.appendChild( renderer.domElement );
