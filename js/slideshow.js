@@ -1,5 +1,9 @@
 var slideIndex = 1; // This starts the slideshow at the first slide
-showSlides(slideIndex); // Show the first slide when the page loads
+
+// Ensure DOM is loaded before running the slideshow
+window.onload = function() {
+  showSlides(slideIndex); // Show the first slide when the page loads
+}
 
 // This function increments/decrements the slide index when arrows are clicked
 function plusSlides(n) {
