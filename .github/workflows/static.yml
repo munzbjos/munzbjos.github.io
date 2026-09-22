@@ -24,6 +24,8 @@ concurrency:
 jobs:
   # Single deploy job since we're just deploying
   deploy:
+    # Safety gate: manual dispatch from redesign must never publish a preview.
+    if: github.ref == 'refs/heads/gh-pages'
     environment:
       name: github-pages
       url: ${{ steps.deployment.outputs.page_url }}

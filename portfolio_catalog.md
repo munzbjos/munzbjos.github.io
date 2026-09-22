@@ -295,7 +295,7 @@ One of the interactive outputs presents the remarkable second life of the histor
 
 ### Interactive outputs
 - *Druhý život řetězového mostu: Příběh přesunu řetězového mostu z Podolska do Stádlce*
-  https://storymaps.arcgis.com/stories/8b9818a23a184da3bf3938391581a0f2
+  https://storymaps.arcgis.com/stories/945c245fcae24ee796371173e3ece15b
 
 ### Project website
 - https://vltava.fsv.cvut.cz/vltava2/index.html
@@ -350,7 +350,7 @@ Elements of an ongoing three-dimensional reconstruction of the former railway, s
 
 ### Interactive outputs
 - *Po stopách zaniklé železnice Vlašim–Trhový Štěpánov–Dolní Kralovice*
-  https://storymaps.arcgis.com/stories/945c245fcae24ee796371173e3ece15b
+  https://storymaps.arcgis.com/stories/8b9818a23a184da3bf3938391581a0f2
 
 ### Project website
 - https://zeleznice.namapach.cz/
@@ -558,4 +558,3 @@ The teaching exercise asks students to map the locations visited by an artist du
 - Present as a compact cartographic sketch and teaching example rather than a full case study.
 - Useful as a lighter portfolio item demonstrating thematic mapping, geocoding and visual design.
 - Keep the accompanying text short and let the map carry the presentation.
-

@@ -1,0 +1,21 @@
+---
+import Base from '../layouts/Base.astro';
+import ProjectGrid from '../components/ProjectGrid.astro';
+import { homeWork, homeResearch } from '../data/projects';
+---
+<Base>
+  <section class="hero" aria-labelledby="hero-title">
+    <p class="eyebrow">Cartographer · Researcher · Educator</p>
+    <h1 id="hero-title">Josef<br />Münzberger<span class="accent">.</span></h1>
+    <div class="hero-bottom"><p>Exploring spatial data through thematic cartography, visualisation and digital storytelling.</p><a class="text-link" href="#selected-work">Explore selected projects <span aria-hidden="true">↓</span></a></div>
+  </section>
+  <section id="selected-work" class="page-section" aria-labelledby="work-heading">
+    <div class="section-heading"><h2 id="work-heading">Selected Work<span class="count">01—03</span></h2><a class="text-link" href="/work/">All work ↗</a></div>
+    <ProjectGrid slugs={homeWork} editorial priority />
+  </section>
+  <section class="page-section" aria-labelledby="research-heading">
+    <div class="section-heading"><div><p class="eyebrow">Methods, histories, perspectives</p><h2 id="research-heading">Selected Research</h2></div><a class="text-link" href="/research/">All research ↗</a></div>
+    <ProjectGrid slugs={homeResearch} compact />
+  </section>
+  <section class="about-teaser page-section" aria-labelledby="about-heading"><p class="eyebrow">About</p><div><h2 id="about-heading">A cartographic perspective.<br />An interdisciplinary practice.</h2><p>My work connects thematic cartography and spatial visualization with historical research, digital humanities and education.</p><a class="text-link" href="/about/">More about me ↗</a></div></section>
+</Base>

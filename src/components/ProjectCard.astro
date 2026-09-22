@@ -1,0 +1,24 @@
+---
+import { Image } from 'astro:assets';
+import { getProject } from '../data/projects';
+import { media } from '../data/media';
+interface Props { slug: string; priority?: boolean; wide?: boolean; compact?: boolean; headingLevel?: 'h2' | 'h3' }
+const { slug, priority = false, wide = false, compact = false, headingLevel = 'h3' } = Astro.props;
+const Heading = headingLevel;
+const sizes = wide
+  ? '(max-width: 640px) calc(100vw - 40px), (max-width: 1440px) 90vw, 1296px'
+  : compact
+    ? '(max-width: 640px) calc(100vw - 40px), (max-width: 1000px) 44vw, (max-width: 1440px) 29vw, 414px'
+    : '(max-width: 640px) calc(100vw - 40px), (max-width: 1440px) 44vw, 634px';
+const project = getProject(slug);
+const visual = media[slug];
+---
+<article class="project-card" data-project={slug}>
+  <a class="project-link" href={`/projects/${slug}/`}>
+    <div class:list={['card-image', {'contain':visual.fit === 'contain'}, `cover-${slug}`]}>
+      <Image src={visual.cover.image} alt={visual.cover.alt} widths={[400,700,1000,1440]} sizes={sizes} format="webp" quality={82} loading={priority ? 'eager' : 'lazy'} fetchpriority={priority ? 'high' : 'auto'} />
+    </div>
+    <div class="card-title"><Heading>{project.title}</Heading><span aria-hidden="true">↗</span></div>
+    <div class="card-meta"><span>{project.type.split(' / ')[0]}</span><span>{project.year}</span></div>
+  </a>
+</article>

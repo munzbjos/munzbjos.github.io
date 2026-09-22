@@ -1,0 +1,29 @@
+---
+import { Image } from 'astro:assets';
+import {media} from '../data/media';
+const visual = media['chinese-pavilion-cibulka'].cover;
+---
+<section class="interactive-output" aria-labelledby="model-heading">
+  <h2 id="model-heading">Explore the model</h2>
+  <div class="model-viewer" data-model-viewer>
+    <Image src={visual.image} alt={visual.alt} width={1200} format="webp" loading="lazy" />
+    <button type="button" data-load-model hidden>Load interactive 3D model ↗</button>
+  </div>
+  <p class="small">Loading the viewer connects to Sketchfab. <a href="https://skfb.ly/pNUVq">View model on Sketchfab ↗</a></p>
+  <p class="small">Čínský pavilon by <a href="https://sketchfab.com/munzbjos">munzbjos</a>, <a href="https://creativecommons.org/licenses/by/4.0/">CC BY 4.0</a>. Preview resized for the web.</p>
+</section>
+<script>
+  document.querySelectorAll<HTMLButtonElement>('[data-load-model]').forEach(button => {
+    button.hidden = false;
+    button.addEventListener('click', () => {
+      const frame = document.createElement('iframe');
+      frame.src = 'https://sketchfab.com/models/191490ecadc94a66aa4afa840d8d96b0/embed';
+      frame.title = 'Interactive 3D model of the Chinese Pavilion at Cibulka';
+      frame.allow = 'fullscreen';
+      frame.allowFullscreen = true;
+      frame.tabIndex = 0;
+      button.closest('[data-model-viewer]')?.replaceChildren(frame);
+      frame.focus();
+    }, {once:true});
+  });
+</script>

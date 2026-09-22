@@ -1,0 +1,10 @@
+---
+import Base from '../layouts/Base.astro';
+import ProjectGrid from '../components/ProjectGrid.astro';
+import {workOrder} from '../data/projects';
+---
+<Base title="Work" section="Work" description="Selected cartographic work by Josef Münzberger: thematic maps, spatial data visualization and visual experiments.">
+  <header class="page-intro"><p class="eyebrow">Cartography &amp; visual exploration</p><h1>Work<span class="accent">.</span></h1><p class="lead">Spatial data, seen differently.</p></header>
+  <section aria-label="Featured work"><ProjectGrid slugs={workOrder.slice(0,3)} editorial priority headingLevel="h2" /></section>
+  <section class="page-section" aria-labelledby="more-work"><div class="section-heading"><h2 id="more-work">Further explorations</h2><span class="small">Maps, music &amp; models</span></div><ProjectGrid slugs={workOrder.slice(3)} compact /></section>
+</Base>
