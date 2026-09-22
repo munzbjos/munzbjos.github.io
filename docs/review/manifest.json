@@ -1,0 +1,197 @@
+{
+  "sourceCommit": "4230a85b34f5225205655200b092f257e9185c54",
+  "capturedAt": "2026-09-22T14:34:14.213Z",
+  "browser": "153.0.8010.12",
+  "deviceScaleFactor": 1,
+  "screenshots": [
+    {
+      "title": "Home",
+      "route": "/",
+      "file": "desktop/01-home.png",
+      "width": 1440,
+      "height": 3716
+    },
+    {
+      "title": "Work",
+      "route": "/work/",
+      "file": "desktop/02-work.png",
+      "width": 1440,
+      "height": 3306
+    },
+    {
+      "title": "Research",
+      "route": "/research/",
+      "file": "desktop/03-research.png",
+      "width": 1440,
+      "height": 2694
+    },
+    {
+      "title": "About",
+      "route": "/about/",
+      "file": "desktop/04-about.png",
+      "width": 1440,
+      "height": 1486
+    },
+    {
+      "title": "Music",
+      "route": "/music/",
+      "file": "desktop/05-music.png",
+      "width": 1440,
+      "height": 1230
+    },
+    {
+      "title": "Prague Squared",
+      "route": "/projects/prague-squared/",
+      "file": "desktop/06-prague-squared.png",
+      "width": 1440,
+      "height": 4992
+    },
+    {
+      "title": "Joy Plots",
+      "route": "/projects/joyplot/",
+      "file": "desktop/07-joy-plots.png",
+      "width": 1440,
+      "height": 4996
+    },
+    {
+      "title": "Bivariate Joy Plots",
+      "route": "/projects/bivariate-joyplot/",
+      "file": "desktop/08-bivariate-joy-plots.png",
+      "width": 1440,
+      "height": 2633
+    },
+    {
+      "title": "Dante’s Inferno",
+      "route": "/projects/dantes-inferno/",
+      "file": "desktop/09-dantes-inferno.png",
+      "width": 1440,
+      "height": 2832
+    },
+    {
+      "title": "Home",
+      "route": "/",
+      "file": "tablet/01-home.png",
+      "width": 768,
+      "height": 3312
+    },
+    {
+      "title": "Work",
+      "route": "/work/",
+      "file": "tablet/02-work.png",
+      "width": 768,
+      "height": 2538
+    },
+    {
+      "title": "Research",
+      "route": "/research/",
+      "file": "tablet/03-research.png",
+      "width": 768,
+      "height": 1920
+    },
+    {
+      "title": "About",
+      "route": "/about/",
+      "file": "tablet/04-about.png",
+      "width": 768,
+      "height": 1577
+    },
+    {
+      "title": "Music",
+      "route": "/music/",
+      "file": "tablet/05-music.png",
+      "width": 768,
+      "height": 1105
+    },
+    {
+      "title": "Prague Squared",
+      "route": "/projects/prague-squared/",
+      "file": "tablet/06-prague-squared.png",
+      "width": 768,
+      "height": 3632
+    },
+    {
+      "title": "Joy Plots",
+      "route": "/projects/joyplot/",
+      "file": "tablet/07-joy-plots.png",
+      "width": 768,
+      "height": 3457
+    },
+    {
+      "title": "Bivariate Joy Plots",
+      "route": "/projects/bivariate-joyplot/",
+      "file": "tablet/08-bivariate-joy-plots.png",
+      "width": 768,
+      "height": 2637
+    },
+    {
+      "title": "Dante’s Inferno",
+      "route": "/projects/dantes-inferno/",
+      "file": "tablet/09-dantes-inferno.png",
+      "width": 768,
+      "height": 2495
+    },
+    {
+      "title": "Home",
+      "route": "/",
+      "file": "mobile/01-home.png",
+      "width": 390,
+      "height": 3963
+    },
+    {
+      "title": "Work",
+      "route": "/work/",
+      "file": "mobile/02-work.png",
+      "width": 390,
+      "height": 3560
+    },
+    {
+      "title": "Research",
+      "route": "/research/",
+      "file": "mobile/03-research.png",
+      "width": 390,
+      "height": 2716
+    },
+    {
+      "title": "About",
+      "route": "/about/",
+      "file": "mobile/04-about.png",
+      "width": 390,
+      "height": 1727
+    },
+    {
+      "title": "Music",
+      "route": "/music/",
+      "file": "mobile/05-music.png",
+      "width": 390,
+      "height": 1223
+    },
+    {
+      "title": "Prague Squared",
+      "route": "/projects/prague-squared/",
+      "file": "mobile/06-prague-squared.png",
+      "width": 390,
+      "height": 3024
+    },
+    {
+      "title": "Joy Plots",
+      "route": "/projects/joyplot/",
+      "file": "mobile/07-joy-plots.png",
+      "width": 390,
+      "height": 2787
+    },
+    {
+      "title": "Bivariate Joy Plots",
+      "route": "/projects/bivariate-joyplot/",
+      "file": "mobile/08-bivariate-joy-plots.png",
+      "width": 390,
+      "height": 2432
+    },
+    {
+      "title": "Dante’s Inferno",
+      "route": "/projects/dantes-inferno/",
+      "file": "mobile/09-dantes-inferno.png",
+      "width": 390,
+      "height": 2627
+    }
+  ]
+}
