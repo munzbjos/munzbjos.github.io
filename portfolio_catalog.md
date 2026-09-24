@@ -148,6 +148,7 @@ The project combines methodological development, cartographic design and empiric
 
 - **Status:** Locked
 - **Slug:** `beyond-the-horizon`
+- **Card label:** Travel networks
 - **Year:** 2024–2026
 - **Section:** Research
 - **Display status:** Featured
@@ -207,6 +208,9 @@ My role focuses on the cartographic and geospatial dimension of the project, inc
 
 - **Status:** Locked
 - **Slug:** `dantes-inferno`
+- **Card label:** Storymapping & Digital Humanities
+- **Detail subtitle:** Storymapping / Digital Humanities
+- **Interactive output display label:** Dante’s Inferno StoryMap
 - **Year:** 2021–2022
 - **Section:** Work
 - **Display status:** Featured
@@ -260,10 +264,11 @@ The StoryMap combines interactive maps, diagrams, a 3D reconstruction, narrative
 
 ---
 
-## Vltava II – Historical Landscape Transformations
+## The Second Life of the Chain Bridge
 
 - **Status:** Locked
 - **Slug:** `vltava-ii`
+- **Card label:** Storymapping
 - **Year:** 2023–2027
 - **Section:** Research
 - **Display status:** Featured
@@ -273,12 +278,12 @@ The StoryMap combines interactive maps, diagrams, a 3D reconstruction, narrative
 - **Funding:** Ministry of Culture of the Czech Republic, NAKI III, project DH23P03OVV055
 
 ### Short description
-A research project examining the changing functions and cultural landscape of the Vltava River through historical sources, cartographic visualization and digital storytelling.
+An interactive StoryMap tracing the relocation of the historic chain bridge from Podolsko to Stádlec through archival imagery, maps and narrative cartography.
 
 ### Extended note
-Vltava II explores the historical landscape of the Vltava and the changing role of the river as both a connection and a barrier. The research draws on archival maps, plans, photographs and other historical sources and uses contemporary cartographic methods to document, interpret and communicate transformations of the river landscape and its cultural heritage.
+The StoryMap follows the remarkable second life of the historic chain bridge originally built across the Vltava at Podolsko. It reconstructs the bridge’s dismantling and relocation to Stádlec, where it was reassembled across the Lužnice, combining archival maps, photographs and other historical material in a spatial narrative.
 
-One of the interactive outputs presents the remarkable second life of the historic chain bridge originally built across the Vltava at Podolsko. The StoryMap reconstructs its dismantling and relocation to Stádlec, where the bridge was reassembled across the Lužnice.
+Created within the Vltava II research project, the portfolio entry focuses specifically on Josef Münzberger’s contribution: the design of the StoryMap and its cartographic presentation.
 
 ### Keywords
 - historical cartography
@@ -306,17 +311,18 @@ One of the interactive outputs presents the remarkable second life of the histor
 
 ### Portfolio notes
 - Research only.
-- Present Vltava II as the umbrella research project, with the chain bridge StoryMap as the principal portfolio-facing output.
+- Present the chain bridge StoryMap as the portfolio item, with Vltava II as supporting research context.
 - The research tile should preferably use a visually distinctive image from the StoryMap rather than the general Vltava II project website.
 - Emphasize the combination of historical evidence, cartography and digital storytelling.
 - Keep the broader project description concise on the website; the StoryMap provides the strongest concrete example of the work.
 
 ---
 
-## Two Centuries of Railways in the Czech Lands
+## Tracing the Lost Railway
 
 - **Status:** Locked
 - **Slug:** `two-centuries-of-railways`
+- **Card label:** Storymapping
 - **Year:** 2023–2027
 - **Section:** Research
 - **Display status:** Featured
@@ -326,14 +332,12 @@ One of the interactive outputs presents the remarkable second life of the histor
 - **Funding:** Ministry of Culture of the Czech Republic, NAKI III, project DH23P03OVV034
 
 ### Short description
-An interdisciplinary research project examining the development of railways in the Czech lands and their impact on landscape, society and cultural heritage through historical research, spatial reconstruction and digital cartography.
+An interactive StoryMap tracing the vanished railway between Trhový Štěpánov and Dolní Kralovice through historical maps, aerial imagery, photographs and spatial reconstruction.
 
 ### Extended note
-Two Centuries of Railways in the Czech Lands investigates the cultural, socioeconomic and transport-related development of Czech and Czechoslovak railways and their role in the transformation of landscape and society.
+The StoryMap follows the former railway line from Trhový Štěpánov towards Dolní Kralovice, documenting stations, surviving traces and locations transformed or lost after the construction of the Švihov Reservoir. Historical aerial imagery, photographs and cartographic sources are combined to reconnect the present-day landscape with the vanished railway.
 
-One of its digital outputs, *Po stopách zaniklé železnice Vlašim–Trhový Štěpánov–Dolní Kralovice*, follows the former railway line known as the Vlašimka, with particular attention to the abandoned section between Trhový Štěpánov and Dolní Kralovice. Using historical aerial imagery, photographs and cartographic material, the StoryMap guides the reader through former stations and significant locations along the line, ending at the old town of Dolní Kralovice, now submerged beneath the Švihov Reservoir.
-
-Elements of an ongoing three-dimensional reconstruction of the former railway, surrounding landscape and railway buildings are incorporated into the narrative and compared with archival sources.
+Created within the Two Centuries of Railways in the Czech Lands research project, the portfolio entry focuses specifically on Josef Münzberger’s contribution to the StoryMap design and cartographic presentation.
 
 ### Keywords
 - historical cartography
@@ -362,7 +366,7 @@ Elements of an ongoing three-dimensional reconstruction of the former railway, s
 
 ### Portfolio notes
 - Research only.
-- Treat the StoryMap as the principal portfolio-facing output of the broader railway research project.
+- Present the lost-railway StoryMap as the portfolio item, with the broader railway research project as supporting context.
 - The tile should use a distinctive image from the abandoned railway narrative rather than a generic project visual.
 - Emphasize the combination of archival evidence, historical cartography and digital storytelling.
 - The future 3D reconstruction may later be incorporated into the project detail if it becomes a strong visual output.

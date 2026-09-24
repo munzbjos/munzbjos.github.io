@@ -19,6 +19,6 @@ const visual = media[slug];
       <Image src={visual.cover.image} alt={visual.cover.alt} widths={[400,700,1000,1440]} sizes={sizes} format="webp" quality={82} loading={priority ? 'eager' : 'lazy'} fetchpriority={priority ? 'high' : 'auto'} />
     </div>
     <div class="card-title"><Heading>{project.title}</Heading><span aria-hidden="true">↗</span></div>
-    <div class="card-meta"><span>{project.type.split(' / ')[0]}</span><span>{project.year}</span></div>
+    <div class="card-meta"><span>{project.cardLabel ?? project.type.split(' / ')[0]}</span><span>{project.year}</span></div>
   </a>
 </article>

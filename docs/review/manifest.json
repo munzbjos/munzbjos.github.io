@@ -1,6 +1,8 @@
 {
-  "sourceCommit": "4230a85b34f5225205655200b092f257e9185c54",
-  "capturedAt": "2026-09-22T14:34:14.213Z",
+  "iteration": 2,
+  "sourceCommit": "a4a9202902da902ef1c59b6551f3bc77997f572b",
+  "sourceWorkingTreeModified": true,
+  "capturedAt": "2026-09-24T15:31:42.052Z",
   "browser": "153.0.8010.12",
   "deviceScaleFactor": 1,
   "screenshots": [
@@ -9,189 +11,634 @@
       "route": "/",
       "file": "desktop/01-home.png",
       "width": 1440,
-      "height": 3716
+      "height": 3167
     },
     {
       "title": "Work",
       "route": "/work/",
       "file": "desktop/02-work.png",
       "width": 1440,
-      "height": 3306
+      "height": 3151
     },
     {
       "title": "Research",
       "route": "/research/",
       "file": "desktop/03-research.png",
       "width": 1440,
-      "height": 2694
+      "height": 2435
     },
     {
       "title": "About",
       "route": "/about/",
       "file": "desktop/04-about.png",
       "width": 1440,
-      "height": 1486
+      "height": 1000
     },
     {
       "title": "Music",
       "route": "/music/",
       "file": "desktop/05-music.png",
       "width": 1440,
-      "height": 1230
+      "height": 1418
     },
     {
       "title": "Prague Squared",
       "route": "/projects/prague-squared/",
       "file": "desktop/06-prague-squared.png",
       "width": 1440,
-      "height": 4992
+      "height": 4901
     },
     {
       "title": "Joy Plots",
       "route": "/projects/joyplot/",
       "file": "desktop/07-joy-plots.png",
       "width": 1440,
-      "height": 4996
+      "height": 4905
     },
     {
       "title": "Bivariate Joy Plots",
       "route": "/projects/bivariate-joyplot/",
       "file": "desktop/08-bivariate-joy-plots.png",
       "width": 1440,
-      "height": 2633
+      "height": 2542
     },
     {
       "title": "Dante’s Inferno",
       "route": "/projects/dantes-inferno/",
       "file": "desktop/09-dantes-inferno.png",
       "width": 1440,
-      "height": 2832
+      "height": 2740
+    },
+    {
+      "title": "Tropical Nights",
+      "route": "/projects/tropical-nights/",
+      "file": "desktop/10-tropical-nights.png",
+      "width": 1440,
+      "height": 2403
+    },
+    {
+      "title": "The Beatles Map",
+      "route": "/projects/the-beatles-map/",
+      "file": "desktop/11-the-beatles-map.png",
+      "width": 1440,
+      "height": 2293
+    },
+    {
+      "title": "Elton John – Farewell Yellow Brick Road Tour",
+      "route": "/projects/elton-john-tour/",
+      "file": "desktop/12-elton-john-tour.png",
+      "width": 1440,
+      "height": 2719
+    },
+    {
+      "title": "Chinese Pavilion at Cibulka",
+      "route": "/projects/chinese-pavilion-cibulka/",
+      "file": "desktop/13-chinese-pavilion-cibulka.png",
+      "width": 1440,
+      "height": 3107
+    },
+    {
+      "title": "Beyond the Horizon",
+      "route": "/projects/beyond-the-horizon/",
+      "file": "desktop/14-beyond-the-horizon.png",
+      "width": 1440,
+      "height": 2926
+    },
+    {
+      "title": "The Second Life of the Chain Bridge",
+      "route": "/projects/vltava-ii/",
+      "file": "desktop/15-chain-bridge.png",
+      "width": 1440,
+      "height": 2776
+    },
+    {
+      "title": "Tracing the Lost Railway",
+      "route": "/projects/two-centuries-of-railways/",
+      "file": "desktop/16-lost-railway.png",
+      "width": 1440,
+      "height": 2268
     },
     {
       "title": "Home",
       "route": "/",
       "file": "tablet/01-home.png",
       "width": 768,
-      "height": 3312
+      "height": 2806
     },
     {
       "title": "Work",
       "route": "/work/",
       "file": "tablet/02-work.png",
       "width": 768,
-      "height": 2538
+      "height": 2376
     },
     {
       "title": "Research",
       "route": "/research/",
       "file": "tablet/03-research.png",
       "width": 768,
-      "height": 1920
+      "height": 1707
     },
     {
       "title": "About",
       "route": "/about/",
       "file": "tablet/04-about.png",
       "width": 768,
-      "height": 1577
+      "height": 1024
     },
     {
       "title": "Music",
       "route": "/music/",
       "file": "tablet/05-music.png",
       "width": 768,
-      "height": 1105
+      "height": 1355
     },
     {
       "title": "Prague Squared",
       "route": "/projects/prague-squared/",
       "file": "tablet/06-prague-squared.png",
       "width": 768,
-      "height": 3632
+      "height": 3521
     },
     {
       "title": "Joy Plots",
       "route": "/projects/joyplot/",
       "file": "tablet/07-joy-plots.png",
       "width": 768,
-      "height": 3457
+      "height": 3347
     },
     {
       "title": "Bivariate Joy Plots",
       "route": "/projects/bivariate-joyplot/",
       "file": "tablet/08-bivariate-joy-plots.png",
       "width": 768,
-      "height": 2637
+      "height": 2527
     },
     {
       "title": "Dante’s Inferno",
       "route": "/projects/dantes-inferno/",
       "file": "tablet/09-dantes-inferno.png",
       "width": 768,
-      "height": 2495
+      "height": 2385
+    },
+    {
+      "title": "Tropical Nights",
+      "route": "/projects/tropical-nights/",
+      "file": "tablet/10-tropical-nights.png",
+      "width": 768,
+      "height": 2027
+    },
+    {
+      "title": "The Beatles Map",
+      "route": "/projects/the-beatles-map/",
+      "file": "tablet/11-the-beatles-map.png",
+      "width": 768,
+      "height": 1919
+    },
+    {
+      "title": "Elton John – Farewell Yellow Brick Road Tour",
+      "route": "/projects/elton-john-tour/",
+      "file": "tablet/12-elton-john-tour.png",
+      "width": 768,
+      "height": 2256
+    },
+    {
+      "title": "Chinese Pavilion at Cibulka",
+      "route": "/projects/chinese-pavilion-cibulka/",
+      "file": "tablet/13-chinese-pavilion-cibulka.png",
+      "width": 768,
+      "height": 2324
+    },
+    {
+      "title": "Beyond the Horizon",
+      "route": "/projects/beyond-the-horizon/",
+      "file": "tablet/14-beyond-the-horizon.png",
+      "width": 768,
+      "height": 2654
+    },
+    {
+      "title": "The Second Life of the Chain Bridge",
+      "route": "/projects/vltava-ii/",
+      "file": "tablet/15-chain-bridge.png",
+      "width": 768,
+      "height": 2360
+    },
+    {
+      "title": "Tracing the Lost Railway",
+      "route": "/projects/two-centuries-of-railways/",
+      "file": "tablet/16-lost-railway.png",
+      "width": 768,
+      "height": 2150
     },
     {
       "title": "Home",
       "route": "/",
       "file": "mobile/01-home.png",
       "width": 390,
-      "height": 3963
+      "height": 3218
     },
     {
       "title": "Work",
       "route": "/work/",
       "file": "mobile/02-work.png",
       "width": 390,
-      "height": 3560
+      "height": 3286
     },
     {
       "title": "Research",
       "route": "/research/",
       "file": "mobile/03-research.png",
       "width": 390,
-      "height": 2716
+      "height": 2387
     },
     {
       "title": "About",
       "route": "/about/",
       "file": "mobile/04-about.png",
       "width": 390,
-      "height": 1727
+      "height": 1092
     },
     {
       "title": "Music",
       "route": "/music/",
       "file": "mobile/05-music.png",
       "width": 390,
-      "height": 1223
+      "height": 1258
     },
     {
       "title": "Prague Squared",
       "route": "/projects/prague-squared/",
       "file": "mobile/06-prague-squared.png",
       "width": 390,
-      "height": 3024
+      "height": 2801
     },
     {
       "title": "Joy Plots",
       "route": "/projects/joyplot/",
       "file": "mobile/07-joy-plots.png",
       "width": 390,
-      "height": 2787
+      "height": 2564
     },
     {
       "title": "Bivariate Joy Plots",
       "route": "/projects/bivariate-joyplot/",
       "file": "mobile/08-bivariate-joy-plots.png",
       "width": 390,
-      "height": 2432
+      "height": 2209
     },
     {
       "title": "Dante’s Inferno",
       "route": "/projects/dantes-inferno/",
       "file": "mobile/09-dantes-inferno.png",
       "width": 390,
-      "height": 2627
+      "height": 2378
+    },
+    {
+      "title": "Tropical Nights",
+      "route": "/projects/tropical-nights/",
+      "file": "mobile/10-tropical-nights.png",
+      "width": 390,
+      "height": 1871
+    },
+    {
+      "title": "The Beatles Map",
+      "route": "/projects/the-beatles-map/",
+      "file": "mobile/11-the-beatles-map.png",
+      "width": 390,
+      "height": 1706
+    },
+    {
+      "title": "Elton John – Farewell Yellow Brick Road Tour",
+      "route": "/projects/elton-john-tour/",
+      "file": "mobile/12-elton-john-tour.png",
+      "width": 390,
+      "height": 2171
+    },
+    {
+      "title": "Chinese Pavilion at Cibulka",
+      "route": "/projects/chinese-pavilion-cibulka/",
+      "file": "mobile/13-chinese-pavilion-cibulka.png",
+      "width": 390,
+      "height": 2029
+    },
+    {
+      "title": "Beyond the Horizon",
+      "route": "/projects/beyond-the-horizon/",
+      "file": "mobile/14-beyond-the-horizon.png",
+      "width": 390,
+      "height": 2873
+    },
+    {
+      "title": "The Second Life of the Chain Bridge",
+      "route": "/projects/vltava-ii/",
+      "file": "mobile/15-chain-bridge.png",
+      "width": 390,
+      "height": 2503
+    },
+    {
+      "title": "Tracing the Lost Railway",
+      "route": "/projects/two-centuries-of-railways/",
+      "file": "mobile/16-lost-railway.png",
+      "width": 390,
+      "height": 2524
+    }
+  ],
+  "cards": [
+    {
+      "slug": "prague-squared",
+      "title": "Prague Squared",
+      "label": "Thematic cartography",
+      "year": "2025",
+      "listingRoute": "/work/",
+      "viewport": "desktop",
+      "viewportWidth": 1440,
+      "file": "cards/desktop/prague-squared.png",
+      "width": 1296,
+      "height": 804
+    },
+    {
+      "slug": "joyplot",
+      "title": "Joy Plots",
+      "label": "Thematic cartography",
+      "year": "2022–present",
+      "listingRoute": "/work/",
+      "viewport": "desktop",
+      "viewportWidth": 1440,
+      "file": "cards/desktop/joyplot.png",
+      "width": 634,
+      "height": 553
+    },
+    {
+      "slug": "dantes-inferno",
+      "title": "Dante’s Inferno",
+      "label": "Storymapping & Digital Humanities",
+      "year": "2021–2022",
+      "listingRoute": "/work/",
+      "viewport": "desktop",
+      "viewportWidth": 1440,
+      "file": "cards/desktop/dantes-inferno.png",
+      "width": 634,
+      "height": 553
+    },
+    {
+      "slug": "tropical-nights",
+      "title": "Tropical Nights",
+      "label": "Thematic cartography",
+      "year": "2026",
+      "listingRoute": "/work/",
+      "viewport": "desktop",
+      "viewportWidth": 1440,
+      "file": "cards/desktop/tropical-nights.png",
+      "width": 414,
+      "height": 408
+    },
+    {
+      "slug": "the-beatles-map",
+      "title": "The Beatles Map",
+      "label": "Thematic cartography",
+      "year": "2022",
+      "listingRoute": "/work/",
+      "viewport": "desktop",
+      "viewportWidth": 1440,
+      "file": "cards/desktop/the-beatles-map.png",
+      "width": 414,
+      "height": 408
+    },
+    {
+      "slug": "elton-john-tour",
+      "title": "Elton John – Farewell Yellow Brick Road Tour",
+      "label": "Thematic cartography",
+      "year": "2024",
+      "listingRoute": "/work/",
+      "viewport": "desktop",
+      "viewportWidth": 1440,
+      "file": "cards/desktop/elton-john-tour.png",
+      "width": 414,
+      "height": 408
+    },
+    {
+      "slug": "chinese-pavilion-cibulka",
+      "title": "Chinese Pavilion at Cibulka",
+      "label": "3D modelling",
+      "year": "2020",
+      "listingRoute": "/work/",
+      "viewport": "desktop",
+      "viewportWidth": 1440,
+      "file": "cards/desktop/chinese-pavilion-cibulka.png",
+      "width": 414,
+      "height": 386
+    },
+    {
+      "slug": "bivariate-joyplot",
+      "title": "Bivariate Joy Plots",
+      "label": "Thematic cartography",
+      "year": "2022–present",
+      "listingRoute": "/research/",
+      "viewport": "desktop",
+      "viewportWidth": 1440,
+      "file": "cards/desktop/bivariate-joyplot.png",
+      "width": 634,
+      "height": 554
+    },
+    {
+      "slug": "beyond-the-horizon",
+      "title": "Beyond the Horizon",
+      "label": "Travel networks",
+      "year": "2024–2026",
+      "listingRoute": "/research/",
+      "viewport": "desktop",
+      "viewportWidth": 1440,
+      "file": "cards/desktop/beyond-the-horizon.png",
+      "width": 634,
+      "height": 553
+    },
+    {
+      "slug": "vltava-ii",
+      "title": "The Second Life of the Chain Bridge",
+      "label": "Storymapping",
+      "year": "2023–2027",
+      "listingRoute": "/research/",
+      "viewport": "desktop",
+      "viewportWidth": 1440,
+      "file": "cards/desktop/vltava-ii.png",
+      "width": 634,
+      "height": 553
+    },
+    {
+      "slug": "two-centuries-of-railways",
+      "title": "Tracing the Lost Railway",
+      "label": "Storymapping",
+      "year": "2023–2027",
+      "listingRoute": "/research/",
+      "viewport": "desktop",
+      "viewportWidth": 1440,
+      "file": "cards/desktop/two-centuries-of-railways.png",
+      "width": 634,
+      "height": 553
+    },
+    {
+      "slug": "prague-squared",
+      "title": "Prague Squared",
+      "label": "Thematic cartography",
+      "year": "2025",
+      "listingRoute": "/work/",
+      "viewport": "mobile",
+      "viewportWidth": 390,
+      "file": "cards/mobile/prague-squared.png",
+      "width": 350,
+      "height": 328
+    },
+    {
+      "slug": "joyplot",
+      "title": "Joy Plots",
+      "label": "Thematic cartography",
+      "year": "2022–present",
+      "listingRoute": "/work/",
+      "viewport": "mobile",
+      "viewportWidth": 390,
+      "file": "cards/mobile/joyplot.png",
+      "width": 350,
+      "height": 337
+    },
+    {
+      "slug": "dantes-inferno",
+      "title": "Dante’s Inferno",
+      "label": "Storymapping & Digital Humanities",
+      "year": "2021–2022",
+      "listingRoute": "/work/",
+      "viewport": "mobile",
+      "viewportWidth": 390,
+      "file": "cards/mobile/dantes-inferno.png",
+      "width": 350,
+      "height": 338
+    },
+    {
+      "slug": "tropical-nights",
+      "title": "Tropical Nights",
+      "label": "Thematic cartography",
+      "year": "2026",
+      "listingRoute": "/work/",
+      "viewport": "mobile",
+      "viewportWidth": 390,
+      "file": "cards/mobile/tropical-nights.png",
+      "width": 350,
+      "height": 337
+    },
+    {
+      "slug": "the-beatles-map",
+      "title": "The Beatles Map",
+      "label": "Thematic cartography",
+      "year": "2022",
+      "listingRoute": "/work/",
+      "viewport": "mobile",
+      "viewportWidth": 390,
+      "file": "cards/mobile/the-beatles-map.png",
+      "width": 350,
+      "height": 337
+    },
+    {
+      "slug": "elton-john-tour",
+      "title": "Elton John – Farewell Yellow Brick Road Tour",
+      "label": "Thematic cartography",
+      "year": "2024",
+      "listingRoute": "/work/",
+      "viewport": "mobile",
+      "viewportWidth": 390,
+      "file": "cards/mobile/elton-john-tour.png",
+      "width": 350,
+      "height": 361
+    },
+    {
+      "slug": "chinese-pavilion-cibulka",
+      "title": "Chinese Pavilion at Cibulka",
+      "label": "3D modelling",
+      "year": "2020",
+      "listingRoute": "/work/",
+      "viewport": "mobile",
+      "viewportWidth": 390,
+      "file": "cards/mobile/chinese-pavilion-cibulka.png",
+      "width": 350,
+      "height": 337
+    },
+    {
+      "slug": "bivariate-joyplot",
+      "title": "Bivariate Joy Plots",
+      "label": "Thematic cartography",
+      "year": "2022–present",
+      "listingRoute": "/research/",
+      "viewport": "mobile",
+      "viewportWidth": 390,
+      "file": "cards/mobile/bivariate-joyplot.png",
+      "width": 350,
+      "height": 337
+    },
+    {
+      "slug": "beyond-the-horizon",
+      "title": "Beyond the Horizon",
+      "label": "Travel networks",
+      "year": "2024–2026",
+      "listingRoute": "/research/",
+      "viewport": "mobile",
+      "viewportWidth": 390,
+      "file": "cards/mobile/beyond-the-horizon.png",
+      "width": 350,
+      "height": 337
+    },
+    {
+      "slug": "vltava-ii",
+      "title": "The Second Life of the Chain Bridge",
+      "label": "Storymapping",
+      "year": "2023–2027",
+      "listingRoute": "/research/",
+      "viewport": "mobile",
+      "viewportWidth": 390,
+      "file": "cards/mobile/vltava-ii.png",
+      "width": 350,
+      "height": 360
+    },
+    {
+      "slug": "two-centuries-of-railways",
+      "title": "Tracing the Lost Railway",
+      "label": "Storymapping",
+      "year": "2023–2027",
+      "listingRoute": "/research/",
+      "viewport": "mobile",
+      "viewportWidth": 390,
+      "file": "cards/mobile/two-centuries-of-railways.png",
+      "width": 350,
+      "height": 338
+    }
+  ],
+  "externalEmbeds": [
+    {
+      "viewport": "desktop",
+      "src": "https://open.spotify.com/embed/album/0Zgc4sdQv3ArYMS955r1FE?utm_source=generator&theme=0&si=1bc37425d8a34eca",
+      "visibleText": "Caroline\nPreview\nThe Jay\nSave on Spotify\n1\nCaroline\nThe Jay\n03:08"
+    },
+    {
+      "viewport": "desktop",
+      "src": "https://open.spotify.com/embed/track/4r9UAO3vFwWMuy3Fo0jkQq?utm_source=generator&theme=0&si=2cf82103b97a40be",
+      "visibleText": "Pojď se mnou ven\nPreview\nFrantiška Stropnická Asibásně\nSave on Spotify"
+    },
+    {
+      "viewport": "tablet",
+      "src": "https://open.spotify.com/embed/album/0Zgc4sdQv3ArYMS955r1FE?utm_source=generator&theme=0&si=1bc37425d8a34eca",
+      "visibleText": "Caroline\nPreview\nThe Jay\nSave on Spotify\n1\nCaroline\nThe Jay\n03:08"
+    },
+    {
+      "viewport": "tablet",
+      "src": "https://open.spotify.com/embed/track/4r9UAO3vFwWMuy3Fo0jkQq?utm_source=generator&theme=0&si=2cf82103b97a40be",
+      "visibleText": "Pojď se mnou ven\nPreview\nFrantiška Stropnická Asibásně\nSave on Spotify"
+    },
+    {
+      "viewport": "mobile",
+      "src": "https://open.spotify.com/embed/album/0Zgc4sdQv3ArYMS955r1FE?utm_source=generator&theme=0&si=1bc37425d8a34eca",
+      "visibleText": "Caroline\nThe Jay\nSave on Spotify\nPreview\n1\nCaroline\nThe Jay\n03:08"
+    },
+    {
+      "viewport": "mobile",
+      "src": "https://open.spotify.com/embed/track/4r9UAO3vFwWMuy3Fo0jkQq?utm_source=generator&theme=0&si=2cf82103b97a40be",
+      "visibleText": "Pojď se mnou ven\nPreview\nFrantiška Stropnická Asibásně\nSave on Spotify"
     }
   ]
 }

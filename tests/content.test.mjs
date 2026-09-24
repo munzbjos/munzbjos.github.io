@@ -25,7 +25,7 @@ for (const block of blocks) {
   test(`approved wording and metadata preserved: ${title}`, () => {
     const project = getProject(metadata.Slug);
     assert.equal(project.title, title);
-    for (const [key, source] of Object.entries({year: 'Year', author: 'Author', role: 'Role', type: 'Type', location: 'Location', project: 'Project', funding: 'Funding', displayStatus: 'Display status'})) {
+    for (const [key, source] of Object.entries({year: 'Year', author: 'Author', role: 'Role', type: 'Type', location: 'Location', project: 'Project', funding: 'Funding', displayStatus: 'Display status', cardLabel: 'Card label', detailSubtitle: 'Detail subtitle'})) {
       assert.equal(project[key], metadata[source]);
     }
     assert.deepEqual(project.sections, metadata.Section.split(', '));
@@ -41,6 +41,7 @@ for (const block of blocks) {
       assert.ok(publicationSource.includes(publication.title));
     }
     const outputSource = section(block, 'Interactive outputs') || section(block, 'Interactive output');
+    assert.equal(project.interactiveOutputs[0]?.displayLabel, metadata['Interactive output display label']);
     assert.deepEqual(project.interactiveOutputs.map(output => output.url), [...outputSource.matchAll(/https:\/\/\S+/g)].map(match => match[0]));
     if (project.teachingContext) {
       assert.deepEqual(Object.values(project.teachingContext), list(block, 'Teaching context'));
@@ -69,4 +70,33 @@ test('external metadata links are valid HTTPS URLs, not placeholders', () => {
     const urls = [...project.publications.map(item => item.url), ...project.interactiveOutputs.map(item => item.url), ...project.projectWebsites, ...(project.teachingContext ? [project.teachingContext.url] : [])];
     for (const url of urls) assert.equal(new URL(url).protocol, 'https:');
   }
+});
+
+test('iteration two display labels do not discard richer classifications', () => {
+  const dante = getProject('dantes-inferno');
+  assert.equal(dante.cardLabel, 'Storymapping & Digital Humanities');
+  assert.equal(dante.detailSubtitle, 'Storymapping / Digital Humanities');
+  assert.equal(dante.type, 'Interactive cartography / digital storytelling / literary cartography');
+  assert.equal(dante.interactiveOutputs[0].displayLabel, 'Dante’s Inferno StoryMap');
+  const horizon = getProject('beyond-the-horizon');
+  assert.equal(horizon.cardLabel, 'Travel networks');
+  assert.equal(horizon.type, 'Historical cartography / digital humanities / HGIS / spatial data visualization');
+  assert.deepEqual(projects.filter(project => project.cardLabel).map(project => project.slug), ['beyond-the-horizon', 'dantes-inferno', 'vltava-ii', 'two-centuries-of-railways']);
+  assert.deepEqual(projects.filter(project => project.detailSubtitle).map(project => project.slug), ['dantes-inferno']);
+});
+
+test('StoryMap contributions are foregrounded while research context is preserved', () => {
+  const bridge = getProject('vltava-ii');
+  const railway = getProject('two-centuries-of-railways');
+  assert.equal(bridge.title, 'The Second Life of the Chain Bridge');
+  assert.equal(railway.title, 'Tracing the Lost Railway');
+  for (const project of [bridge, railway]) {
+    assert.equal(project.cardLabel, 'Storymapping');
+    assert.equal(project.year, '2023–2027');
+    assert.equal(project.extendedNote.length, 2);
+    assert.ok(project.shortDescription.startsWith('An interactive StoryMap tracing'));
+    assert.ok(project.project && project.funding && project.projectWebsites.length);
+  }
+  assert.equal(bridge.role, 'StoryMap design');
+  assert.equal(railway.role, 'StoryMap design / cartography');
 });

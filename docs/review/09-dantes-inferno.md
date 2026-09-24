@@ -1,8 +1,8 @@
-# Dante’s Inferno — vizuální review
+# Dante’s Inferno — vizuální review 2
 
-[← Přehled všech stránek](README.md)
+[← Přehled všech stránek](README.md) · [Samostatné project cards](cards/README.md)
 
-Zdrojový build: `4230a85`. Všechny tři snímky jsou full-page, bez změny coverů nebo designu.
+Druhá iterace podle change requestu. Všechny snímky jsou full-page, DPR 1. Původní obrazové soubory nebyly měněny.
 
 ## Desktop — 1440 px
 

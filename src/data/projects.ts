@@ -5,7 +5,7 @@
  */
 export type ProjectSection = 'Work' | 'Research';
 export interface Publication { title: string; citation: string; url: string }
-export interface InteractiveOutput { title: string; url: string; kind: 'storymap' | 'sketchfab' }
+export interface InteractiveOutput { title: string; url: string; kind: 'storymap' | 'sketchfab'; displayLabel?: string }
 export interface Project {
   slug: string;
   title: string;
@@ -15,6 +15,8 @@ export interface Project {
   author?: string;
   role?: string;
   type: string;
+  cardLabel?: string;
+  detailSubtitle?: string;
   location?: string;
   project?: string;
   funding?: string;
@@ -151,6 +153,7 @@ export const projects: Project[] = [
   },
   {
     "slug": "beyond-the-horizon",
+    "cardLabel": "Travel networks",
     "title": "Beyond the Horizon",
     "year": "2024–2026",
     "sections": [
@@ -205,6 +208,8 @@ export const projects: Project[] = [
   },
   {
     "slug": "dantes-inferno",
+    "cardLabel": "Storymapping & Digital Humanities",
+    "detailSubtitle": "Storymapping / Digital Humanities",
     "title": "Dante’s Inferno",
     "year": "2021–2022",
     "sections": [
@@ -237,6 +242,7 @@ export const projects: Project[] = [
     "interactiveOutputs": [
       {
         "title": "Dante’s Inferno",
+        "displayLabel": "Dante’s Inferno StoryMap",
         "url": "https://storymaps.arcgis.com/stories/ad2a09720b75435b922396307e2d6004",
         "kind": "storymap"
       }
@@ -252,7 +258,8 @@ export const projects: Project[] = [
   },
   {
     "slug": "vltava-ii",
-    "title": "Vltava II – Historical Landscape Transformations",
+    "title": "The Second Life of the Chain Bridge",
+    "cardLabel": "Storymapping",
     "year": "2023–2027",
     "sections": [
       "Research"
@@ -262,10 +269,10 @@ export const projects: Project[] = [
     "type": "Historical cartography / digital storytelling / cultural heritage / historical GIS",
     "project": "Vltava II – proměny historické krajiny, řeka jako spojnice i bariéra",
     "funding": "Ministry of Culture of the Czech Republic, NAKI III, project DH23P03OVV055",
-    "shortDescription": "A research project examining the changing functions and cultural landscape of the Vltava River through historical sources, cartographic visualization and digital storytelling.",
+    "shortDescription": "An interactive StoryMap tracing the relocation of the historic chain bridge from Podolsko to Stádlec through archival imagery, maps and narrative cartography.",
     "extendedNote": [
-      "Vltava II explores the historical landscape of the Vltava and the changing role of the river as both a connection and a barrier. The research draws on archival maps, plans, photographs and other historical sources and uses contemporary cartographic methods to document, interpret and communicate transformations of the river landscape and its cultural heritage.",
-      "One of the interactive outputs presents the remarkable second life of the historic chain bridge originally built across the Vltava at Podolsko. The StoryMap reconstructs its dismantling and relocation to Stádlec, where the bridge was reassembled across the Lužnice."
+      "The StoryMap follows the remarkable second life of the historic chain bridge originally built across the Vltava at Podolsko. It reconstructs the bridge’s dismantling and relocation to Stádlec, where it was reassembled across the Lužnice, combining archival maps, photographs and other historical material in a spatial narrative.",
+      "Created within the Vltava II research project, the portfolio entry focuses specifically on Josef Münzberger’s contribution: the design of the StoryMap and its cartographic presentation."
     ],
     "keywords": [
       "historical cartography",
@@ -297,7 +304,8 @@ export const projects: Project[] = [
   },
   {
     "slug": "two-centuries-of-railways",
-    "title": "Two Centuries of Railways in the Czech Lands",
+    "title": "Tracing the Lost Railway",
+    "cardLabel": "Storymapping",
     "year": "2023–2027",
     "sections": [
       "Research"
@@ -307,11 +315,10 @@ export const projects: Project[] = [
     "type": "Historical cartography / digital storytelling / railway heritage / historical GIS",
     "project": "Dvě století železnice v českých zemích. Kulturní, socioekonomické a dopravně technické aspekty vývoje českých (československých) železnic",
     "funding": "Ministry of Culture of the Czech Republic, NAKI III, project DH23P03OVV034",
-    "shortDescription": "An interdisciplinary research project examining the development of railways in the Czech lands and their impact on landscape, society and cultural heritage through historical research, spatial reconstruction and digital cartography.",
+    "shortDescription": "An interactive StoryMap tracing the vanished railway between Trhový Štěpánov and Dolní Kralovice through historical maps, aerial imagery, photographs and spatial reconstruction.",
     "extendedNote": [
-      "Two Centuries of Railways in the Czech Lands investigates the cultural, socioeconomic and transport-related development of Czech and Czechoslovak railways and their role in the transformation of landscape and society.",
-      "One of its digital outputs, Po stopách zaniklé železnice Vlašim–Trhový Štěpánov–Dolní Kralovice, follows the former railway line known as the Vlašimka, with particular attention to the abandoned section between Trhový Štěpánov and Dolní Kralovice. Using historical aerial imagery, photographs and cartographic material, the StoryMap guides the reader through former stations and significant locations along the line, ending at the old town of Dolní Kralovice, now submerged beneath the Švihov Reservoir.",
-      "Elements of an ongoing three-dimensional reconstruction of the former railway, surrounding landscape and railway buildings are incorporated into the narrative and compared with archival sources."
+      "The StoryMap follows the former railway line from Trhový Štěpánov towards Dolní Kralovice, documenting stations, surviving traces and locations transformed or lost after the construction of the Švihov Reservoir. Historical aerial imagery, photographs and cartographic sources are combined to reconnect the present-day landscape with the vanished railway.",
+      "Created within the Two Centuries of Railways in the Czech Lands research project, the portfolio entry focuses specifically on Josef Münzberger’s contribution to the StoryMap design and cartographic presentation."
     ],
     "keywords": [
       "historical cartography",

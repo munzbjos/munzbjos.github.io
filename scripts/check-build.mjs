@@ -10,6 +10,10 @@ const html = files.filter(file => file.endsWith('.html'));
 assert.equal(html.length, 17, 'Expected homepage, four sections, eleven projects and 404');
 const route = file => '/' + relative(root, file).replace(/index\.html$/, '');
 const site = 'https://munzbjos.github.io';
+const spotify = [
+  'https://open.spotify.com/embed/album/0Zgc4sdQv3ArYMS955r1FE?utm_source=generator&theme=0&si=1bc37425d8a34eca',
+  'https://open.spotify.com/embed/track/4r9UAO3vFwWMuy3Fo0jkQq?utm_source=generator&theme=0&si=2cf82103b97a40be',
+];
 let references = 0;
 function localTarget(value, current) {
   if (!value || /^(mailto:|tel:|data:|javascript:)/i.test(value)) return null;
@@ -39,7 +43,18 @@ for (const file of html) {
   for (const selector of ['meta[name="description"]', 'meta[property="og:title"]', 'meta[property="og:description"]', 'meta[property="og:image"]', 'meta[name="twitter:card"]']) assert.ok($(selector).attr('content'), `${selector}: ${route(file)}`);
   assert.equal($('link[rel="canonical"]').attr('href'), site + (route(file) === '/404.html' ? '/404/' : route(file)));
   assert.ok($('meta[name="robots"]').attr('content')?.includes('noindex'), 'Redesign preview must remain noindex');
-  assert.equal($('iframe').length, 0, 'Third-party iframes must be click-to-load');
+  assert.equal($('iframe').length, route(file) === '/music/' ? 2 : 0, 'Only Music may include initial third-party iframes');
+  if (route(file) === '/music/') {
+    $('iframe').each((index, element) => {
+      const frame = $(element);
+      assert.equal(frame.attr('src'), spotify[index]);
+      assert.ok(frame.attr('title')?.includes(index === 0 ? 'The Jay' : 'Asibásně'), 'Spotify iframe needs a descriptive artist title');
+      for (const [attribute, value] of Object.entries({width:'100%',height:'352',loading:'lazy',frameborder:'0',allow:'autoplay; clipboard-write; encrypted-media; fullscreen; picture-in-picture'})) assert.equal(frame.attr(attribute), value);
+    });
+    assert.equal($('main').text().replace(/\s+/g, ' ').trim(), 'Music.');
+  }
+  assert.equal($('footer').text().replace(/\s+/g, ' ').trim(), '© 2026 Josef Münzberger');
+  assert.equal($('footer a').length, 0);
   const ids = $('[id]').toArray().map(element => $(element).attr('id'));
   assert.equal(ids.length, new Set(ids).size, `Duplicate IDs on ${route(file)}`);
   for (const element of $('[href], [src]').toArray()) {
@@ -67,4 +82,4 @@ for (const file of files.filter(file => file.endsWith('.css'))) {
 assert.ok(existsSync(resolve(root, 'robots.txt')));
 assert.ok(existsSync(resolve(root, 'sitemap.xml')));
 assert.ok(!files.some(file => /(?:MASTER_PROMPT|portfolio_catalog|\.dae$|\.skp$|\.env)/.test(relative(root, file))), 'Private/build-source artifacts leaked');
-console.log(`PASS: ${html.length} HTML pages; ${references} local link/image/font references; metadata, IDs, alt text, dimensions, noindex and deferred embeds.`);
+console.log(`PASS: ${html.length} HTML pages; ${references} local link/image/font references; metadata, IDs, alt text, dimensions, noindex, minimal footers, and exact Music-only lazy Spotify embeds.`);
