@@ -13,16 +13,16 @@ Scope: `docs/REDESIGN_CHANGE_REQUEST.md`, branch `redesign` only. Baseline `a4a9
 - Dante uses separate card label, detail subtitle and interactive display label; full internal type and English StoryMap URL preserved.
 - Catalog synchronized with approved titles/copy/display fields. Bivariate DOI remains unchanged, as instructed.
 
-## Pending clarification: two StoryMap URL lines
+## Resolved: two StoryMap URL lines
 
-The new request's RESEARCH-03 / RESEARCH-04 URL lines contradict both Josef's previous explicit confirmation and current live ArcGIS metadata:
+The original RESEARCH-03 / RESEARCH-04 URL lines were reversed. Josef confirmed the following assignments and the document correction on 2026-09-24:
 
 | Actual public story | Verified URL |
 |---|---|
 | Druhý život řetězového mostu | https://storymaps.arcgis.com/stories/945c245fcae24ee796371173e3ece15b |
 | Po stopách zaniklé železnice (embed) | https://storymaps.arcgis.com/stories/8b9818a23a184da3bf3938391581a0f2 |
 
-Both public item endpoints returned HTTP 200 and those matching titles during this iteration. The new document requests the reverse assignments. Clarification was requested; **existing verified URLs are preserved pending confirmation**, not silently swapped to the wrong subjects. The original change-request document is not rewritten without approval. This is the only outstanding implementation decision.
+Both public item endpoints returned HTTP 200 and those matching titles during this iteration. **The change-request document is now corrected with owner approval.** Existing verified URLs in the catalog, implementation and tests are preserved. No implementation decisions remain open for this request. This documentation-only confirmation does not change the rendered pages or invalidate the review screenshots.
 
 ## Validation
 

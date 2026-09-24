@@ -316,9 +316,9 @@ A project website link may remain available as contextual information.
 
 Use the correct StoryMap URL:
 
-`https://storymaps.arcgis.com/stories/8b9818a23a184da3bf3938391581a0f2`
+`https://storymaps.arcgis.com/stories/945c245fcae24ee796371173e3ece15b`
 
-The current repository data incorrectly assigns the railway StoryMap URL to this entry.
+Owner-confirmed correction (2026-09-24): this URL opens the chain-bridge StoryMap. Preserve this assignment in the repository data; the original change-request URL was reversed.
 
 **Priority:** High.
 
@@ -380,9 +380,9 @@ Project website links may remain as contextual resources.
 
 Use the correct StoryMap URL:
 
-`https://storymaps.arcgis.com/stories/945c245fcae24ee796371173e3ece15b`
+`https://storymaps.arcgis.com/stories/8b9818a23a184da3bf3938391581a0f2`
 
-The current repository data incorrectly assigns the chain-bridge StoryMap URL to this entry.
+Owner-confirmed correction (2026-09-24): this URL opens the lost-railway StoryMap. Preserve this assignment in the repository data; the original change-request URL was reversed.
 
 **Priority:** High.
 
@@ -750,4 +750,3 @@ Also regenerate the already reviewed pages so the full second-iteration state ca
 Do not make additional speculative design changes to unreviewed detail pages before this second review.
 
 **Priority:** High for QA / review handoff.
-
