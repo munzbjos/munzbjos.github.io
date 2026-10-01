@@ -10,7 +10,10 @@ const urls = new Set();
 for (const file of await htmlFiles('dist')) {
   const $ = load(await readFile(file, 'utf8'));
   $('a[href^="https://"]').each((_, el) => urls.add($(el).attr('href')));
+  $('iframe[src^="https://"]').each((_, el) => urls.add($(el).attr('src')));
 }
+// The Sketchfab embed is intentionally inserted only after user activation.
+urls.add('https://sketchfab.com/models/191490ecadc94a66aa4afa840d8d96b0/embed');
 const results = [];
 const queue = [...urls];
 async function worker() {

@@ -9,6 +9,7 @@ Entries marked as **Locked** have been reviewed and approved for use in the rede
 
 - **Status:** Locked
 - **Slug:** `prague-squared`
+- **Hide location:** true
 - **Year:** 2025
 - **Section:** Work, Research
 - **Display status:** Featured
@@ -31,11 +32,15 @@ Prague Squared explores an alternative approach to urban data visualization by c
 - information graphics
 
 ### Tools
-- ArcGIS Pro 3.3
+- ArcGIS Pro
 
 ### Publications
 - Münzberger, J. (2025). *Prague Squared*. Journal of Maps, 21(1).
   DOI: https://doi.org/10.1080/17445647.2025.2473593
+
+### Linked recognitions
+- **Runner-up — Best Map Award 2025, Journal of Maps**
+  https://www.tandfonline.com/journals/tjom20/collections/best-map-award
 
 ### Media
 - **Cover:** TBD
@@ -131,6 +136,11 @@ The project combines methodological development, cartographic design and empiric
 - Münzberger, J. (2026, in press). *Integrating Joy Plots into Thematic Cartography: Methodology and Applications for Bivariate Spatial Data Visualisation*. The Cartographic Journal.
   DOI: https://doi.org/10.1080/00087041.2026.2715285
 
+### User studies
+- **Bivariate Joy Plots User Study**
+  https://joyplots.onmaps.cz/
+  User-testing study comparing bivariate joy plots with bivariate choropleth maps.
+
 ### Media
 - **Directory:** `portfolio/bivariate-joyplot/`
 - **Cover:** TBD
@@ -148,6 +158,9 @@ The project combines methodological development, cartographic design and empiric
 
 - **Status:** Locked
 - **Slug:** `beyond-the-horizon`
+- **Hide credits:** true
+- **Hide funding:** true
+- **Detail subtitle:** Travel networks / Digital Humanities / HGIS
 - **Card label:** Travel networks
 - **Year:** 2024–2026
 - **Section:** Research
@@ -249,6 +262,14 @@ The StoryMap combines interactive maps, diagrams, a 3D reconstruction, narrative
 - Winner of Popular Vote; 2nd place in Jury Vote — StoryMap category, International Cartographic Exhibition 2023, ICC Cape Town
 - Winner — Digital Cartographic Products and Applications on the Internet category, Mapa roku 2021
 
+### Book features
+- **Telling Stories with Maps**
+  https://www.esri.com/en-us/esri-press/browse/telling-stories-with-maps
+  Dante’s Inferno is presented in a two-page feature.
+- **The Spatial Edge**
+  https://www.esri.com/en-us/esri-press/browse/the-spatial-edge
+  Dante’s Inferno is presented in a one-page feature.
+
 ### Media
 - **Cover:** TBD
 - **Gallery:** TBD
@@ -268,13 +289,15 @@ The StoryMap combines interactive maps, diagrams, a 3D reconstruction, narrative
 
 - **Status:** Locked
 - **Slug:** `vltava-ii`
+- **Hide funding:** true
+- **Detail subtitle:** Digital storytelling
 - **Card label:** Storymapping
 - **Year:** 2023–2027
 - **Section:** Research
 - **Display status:** Featured
 - **Role:** StoryMap design
 - **Type:** Historical cartography / digital storytelling / cultural heritage / historical GIS
-- **Project:** Vltava II – proměny historické krajiny, řeka jako spojnice i bariéra
+- **Project:** Vltava II – transformations of the historical landscape, the river as a link and a barrier
 - **Funding:** Ministry of Culture of the Czech Republic, NAKI III, project DH23P03OVV055
 
 ### Short description
@@ -322,13 +345,15 @@ Created within the Vltava II research project, the portfolio entry focuses speci
 
 - **Status:** Locked
 - **Slug:** `two-centuries-of-railways`
+- **Hide funding:** true
+- **Detail subtitle:** Digital storytelling
 - **Card label:** Storymapping
 - **Year:** 2023–2027
 - **Section:** Research
 - **Display status:** Featured
 - **Role:** StoryMap design / cartography
 - **Type:** Historical cartography / digital storytelling / railway heritage / historical GIS
-- **Project:** Dvě století železnice v českých zemích. Kulturní, socioekonomické a dopravně technické aspekty vývoje českých (československých) železnic
+- **Project:** Two Centuries of Railways in the Czech Lands
 - **Funding:** Ministry of Culture of the Czech Republic, NAKI III, project DH23P03OVV034
 
 ### Short description
@@ -384,10 +409,10 @@ Created within the Two Centuries of Railways in the Czech Lands research project
 - **Type:** Thematic cartography / music mapping / cartographic design
 
 ### Short description
-A cartographic series mapping the cities around the world where The Beatles performed, combining music history with a distinctive watercolor-inspired visual style.
+A map poster mapping the cities around the world where The Beatles performed, combining music history with a distinctive watercolor-inspired visual style.
 
 ### Extended note
-The Beatles Map explores the geographical footprint of the band’s live performances through a series of thematic maps. Cities associated with Beatles concerts are mapped at different geographic scales, turning a dataset of musical performances into a visually expressive cartographic narrative.
+The Beatles Map explores the geographical footprint of the band’s live performances through a thematic map poster. Cities associated with Beatles concerts are mapped at different geographic scales, turning a dataset of musical performances into a visually expressive cartographic narrative.
 
 The project was originally created for the music theme of the 2022 #30DayMapChallenge and uses the Stamen Watercolor basemap as a deliberately illustrative background.
 
@@ -417,10 +442,11 @@ The project was originally created for the music theme of the 2022 #30DayMapChal
 
 ---
 
-## Chinese Pavilion at Cibulka
+## Chinese Pavilion
 
 - **Status:** Locked
 - **Slug:** `chinese-pavilion-cibulka`
+- **Detail subtitle:** 3D modelling
 - **Year:** 2020
 - **Section:** Work
 - **Display status:** Secondary
@@ -468,6 +494,8 @@ The project is retained in the portfolio as an early example of architectural 3D
 
 - **Status:** Locked
 - **Slug:** `tropical-nights`
+- **Hide credits:** true
+- **Detail subtitle:** Thematic cartography / climate data visualization
 - **Year:** 2026
 - **Section:** Work
 - **Display status:** Secondary
@@ -521,6 +549,9 @@ The visualization highlights striking differences between geographically close c
 
 - **Status:** Locked
 - **Slug:** `elton-john-tour`
+- **Hide teaching context:** true
+- **Detail subtitle:** Thematic cartography / music mapping
+- **Card title:** Elton John Farewell Tour
 - **Year:** 2024
 - **Section:** Work
 - **Display status:** Secondary
@@ -531,9 +562,7 @@ The visualization highlights striking differences between geographically close c
 A thematic map of part of Elton John’s Farewell Yellow Brick Road tour, created as a teaching example for a university cartography exercise focused on geocoding and thematic mapping.
 
 ### Extended note
-The map was developed while preparing a university cartography practical on geocoding. It uses concert locations from Elton John’s Farewell Yellow Brick Road tour as an accessible real-world dataset for demonstrating the workflow from tabular data processing and geocoding to thematic cartographic visualization.
-
-The teaching exercise asks students to map the locations visited by an artist during a selected part of a tour and visualize the total concert revenue for each location. The Elton John map served as a visual example of the expected output and of how a relatively simple dataset can be turned into a polished thematic map.
+The map animation was developed while preparing a university cartography practical on geocoding. It uses concert locations from part of Elton John’s Farewell Yellow Brick Road tour and reveals the tour stops progressively in chronological order, turning a simple geocoded dataset into a visual narrative of movement through space and time.
 
 ### Keywords
 - thematic cartography

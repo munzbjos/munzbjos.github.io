@@ -5,9 +5,17 @@ import sharp from 'sharp';
 
 const root = resolve('docs/review');
 const manifest = JSON.parse(await readFile(resolve(root, 'manifest.json'), 'utf8'));
-assert.equal(manifest.iteration, 2);
+assert.equal(manifest.iteration, 3);
 assert.equal(manifest.screenshots.length, 48);
 assert.equal(manifest.cards.length, 22);
+assert.equal(manifest.viewers.length, 6);
+for (const viewport of ['desktop','tablet','mobile']) {
+  const viewers = manifest.viewers.filter(v => v.viewport === viewport);
+  assert.equal(viewers.length, 2);
+  assert.deepEqual(viewers.map(v => v.position), ['2 / 4','2 / 8']);
+  assert.match(viewers[0].image, /ps2[._]/);
+  assert.match(viewers[1].image, /C_detail[._]/);
+}
 assert.equal(new Set(manifest.screenshots.map(s => s.route)).size, 16);
 for (const width of [1440,768,390]) assert.equal(manifest.screenshots.filter(s => s.width === width).length, 16);
 for (const viewport of ['desktop','mobile']) {
@@ -16,8 +24,8 @@ for (const viewport of ['desktop','mobile']) {
   assert.equal(new Set(cards.map(c => c.slug)).size, 11);
   for (const card of cards) assert.ok(card.title && card.label && card.year && card.listingRoute);
 }
-const expected = new Set([...manifest.screenshots, ...manifest.cards].map(s => resolve(root,s.file)));
-for (const screenshot of [...manifest.screenshots, ...manifest.cards]) {
+const expected = new Set([...manifest.screenshots, ...manifest.cards, ...manifest.viewers].map(s => resolve(root,s.file)));
+for (const screenshot of [...manifest.screenshots, ...manifest.cards, ...manifest.viewers]) {
   const metadata = await sharp(resolve(root, screenshot.file)).metadata();
   assert.equal(metadata.format, 'png');
   assert.equal(metadata.width, screenshot.width, screenshot.file);
@@ -41,7 +49,7 @@ async function checkDirectory(dir) {
   }
 }
 await checkDirectory(root);
-assert.equal(pngs, 70);
+assert.equal(pngs, 76);
 assert.equal(manifest.externalEmbeds.length, 6);
 for (const embed of manifest.externalEmbeds) assert.match(embed.visibleText, /Caroline|Pojď se mnou ven/);
-console.log(`PASS: ${pngs} PNGs (48 pages + 22 cards), exact dimensions, all11 cards at both widths, 6 live Spotify renders, ${links} valid Markdown references.`);
+console.log(`PASS: ${pngs} PNGs (48 pages + 22 cards + 6 active galleries), exact dimensions, all11 cards at both widths, 6 live Spotify renders, ${links} valid Markdown references.`);

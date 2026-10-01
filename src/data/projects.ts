@@ -16,6 +16,14 @@ export interface Project {
   role?: string;
   type: string;
   cardLabel?: string;
+  cardTitle?: string;
+  hideLocation?: boolean;
+  hideFunding?: boolean;
+  hideCredits?: boolean;
+  hideTeachingContext?: boolean;
+  recognitions?: { title: string; url: string }[];
+  studies?: { title: string; url: string; description: string }[];
+  bookFeatures?: { title: string; url: string; description: string }[];
   detailSubtitle?: string;
   location?: string;
   project?: string;
@@ -59,7 +67,7 @@ export const projects: Project[] = [
       "information graphics"
     ],
     "tools": [
-      "ArcGIS Pro 3.3"
+      "ArcGIS Pro"
     ],
     "publications": [
       {
@@ -72,7 +80,14 @@ export const projects: Project[] = [
     "projectWebsites": [],
     "awards": [],
     "dataCredits": [],
-    "tbd": []
+    "tbd": [],
+    "hideLocation": true,
+    "recognitions": [
+      {
+        "title": "Runner-up — Best Map Award 2025, Journal of Maps",
+        "url": "https://www.tandfonline.com/journals/tjom20/collections/best-map-award"
+      }
+    ]
   },
   {
     "slug": "joyplot",
@@ -149,7 +164,14 @@ export const projects: Project[] = [
     "projectWebsites": [],
     "awards": [],
     "dataCredits": [],
-    "tbd": []
+    "tbd": [],
+    "studies": [
+      {
+        "title": "Bivariate Joy Plots User Study",
+        "url": "https://joyplots.onmaps.cz/",
+        "description": "User-testing study comparing bivariate joy plots with bivariate choropleth maps."
+      }
+    ]
   },
   {
     "slug": "beyond-the-horizon",
@@ -204,7 +226,10 @@ export const projects: Project[] = [
     "dataCredits": [],
     "tbd": [
       "Forthcoming Journal of Maps article: publication status and bibliographic details"
-    ]
+    ],
+    "detailSubtitle": "Travel networks / Digital Humanities / HGIS",
+    "hideFunding": true,
+    "hideCredits": true
   },
   {
     "slug": "dantes-inferno",
@@ -254,7 +279,19 @@ export const projects: Project[] = [
       "Winner — Digital Cartographic Products and Applications on the Internet category, Mapa roku 2021"
     ],
     "dataCredits": [],
-    "tbd": []
+    "tbd": [],
+    "bookFeatures": [
+      {
+        "title": "Telling Stories with Maps",
+        "url": "https://www.esri.com/en-us/esri-press/browse/telling-stories-with-maps",
+        "description": "Dante’s Inferno is presented in a two-page feature."
+      },
+      {
+        "title": "The Spatial Edge",
+        "url": "https://www.esri.com/en-us/esri-press/browse/the-spatial-edge",
+        "description": "Dante’s Inferno is presented in a one-page feature."
+      }
+    ]
   },
   {
     "slug": "vltava-ii",
@@ -267,7 +304,7 @@ export const projects: Project[] = [
     "displayStatus": "Featured",
     "role": "StoryMap design",
     "type": "Historical cartography / digital storytelling / cultural heritage / historical GIS",
-    "project": "Vltava II – proměny historické krajiny, řeka jako spojnice i bariéra",
+    "project": "Vltava II – transformations of the historical landscape, the river as a link and a barrier",
     "funding": "Ministry of Culture of the Czech Republic, NAKI III, project DH23P03OVV055",
     "shortDescription": "An interactive StoryMap tracing the relocation of the historic chain bridge from Podolsko to Stádlec through archival imagery, maps and narrative cartography.",
     "extendedNote": [
@@ -300,7 +337,9 @@ export const projects: Project[] = [
     ],
     "awards": [],
     "dataCredits": [],
-    "tbd": []
+    "tbd": [],
+    "detailSubtitle": "Digital storytelling",
+    "hideFunding": true
   },
   {
     "slug": "two-centuries-of-railways",
@@ -313,7 +352,7 @@ export const projects: Project[] = [
     "displayStatus": "Featured",
     "role": "StoryMap design / cartography",
     "type": "Historical cartography / digital storytelling / railway heritage / historical GIS",
-    "project": "Dvě století železnice v českých zemích. Kulturní, socioekonomické a dopravně technické aspekty vývoje českých (československých) železnic",
+    "project": "Two Centuries of Railways in the Czech Lands",
     "funding": "Ministry of Culture of the Czech Republic, NAKI III, project DH23P03OVV034",
     "shortDescription": "An interactive StoryMap tracing the vanished railway between Trhový Štěpánov and Dolní Kralovice through historical maps, aerial imagery, photographs and spatial reconstruction.",
     "extendedNote": [
@@ -347,7 +386,9 @@ export const projects: Project[] = [
     ],
     "awards": [],
     "dataCredits": [],
-    "tbd": []
+    "tbd": [],
+    "detailSubtitle": "Digital storytelling",
+    "hideFunding": true
   },
   {
     "slug": "the-beatles-map",
@@ -359,9 +400,9 @@ export const projects: Project[] = [
     "displayStatus": "Secondary",
     "author": "Josef Münzberger",
     "type": "Thematic cartography / music mapping / cartographic design",
-    "shortDescription": "A cartographic series mapping the cities around the world where The Beatles performed, combining music history with a distinctive watercolor-inspired visual style.",
+    "shortDescription": "A map poster mapping the cities around the world where The Beatles performed, combining music history with a distinctive watercolor-inspired visual style.",
     "extendedNote": [
-      "The Beatles Map explores the geographical footprint of the band’s live performances through a series of thematic maps. Cities associated with Beatles concerts are mapped at different geographic scales, turning a dataset of musical performances into a visually expressive cartographic narrative.",
+      "The Beatles Map explores the geographical footprint of the band’s live performances through a thematic map poster. Cities associated with Beatles concerts are mapped at different geographic scales, turning a dataset of musical performances into a visually expressive cartographic narrative.",
       "The project was originally created for the music theme of the 2022 #30DayMapChallenge and uses the Stamen Watercolor basemap as a deliberately illustrative background."
     ],
     "keywords": [
@@ -384,7 +425,7 @@ export const projects: Project[] = [
   },
   {
     "slug": "chinese-pavilion-cibulka",
-    "title": "Chinese Pavilion at Cibulka",
+    "title": "Chinese Pavilion",
     "year": "2020",
     "sections": [
       "Work"
@@ -419,7 +460,8 @@ export const projects: Project[] = [
     "projectWebsites": [],
     "awards": [],
     "dataCredits": [],
-    "tbd": []
+    "tbd": [],
+    "detailSubtitle": "3D modelling"
   },
   {
     "slug": "tropical-nights",
@@ -460,7 +502,9 @@ export const projects: Project[] = [
     ],
     "tbd": [
       "Original LinkedIn post URL"
-    ]
+    ],
+    "detailSubtitle": "Thematic cartography / climate data visualization",
+    "hideCredits": true
   },
   {
     "slug": "elton-john-tour",
@@ -474,8 +518,7 @@ export const projects: Project[] = [
     "type": "Thematic cartography / music mapping / educational cartography",
     "shortDescription": "A thematic map of part of Elton John’s Farewell Yellow Brick Road tour, created as a teaching example for a university cartography exercise focused on geocoding and thematic mapping.",
     "extendedNote": [
-      "The map was developed while preparing a university cartography practical on geocoding. It uses concert locations from Elton John’s Farewell Yellow Brick Road tour as an accessible real-world dataset for demonstrating the workflow from tabular data processing and geocoding to thematic cartographic visualization.",
-      "The teaching exercise asks students to map the locations visited by an artist during a selected part of a tour and visualize the total concert revenue for each location. The Elton John map served as a visual example of the expected output and of how a relatively simple dataset can be turned into a polished thematic map."
+      "The map animation was developed while preparing a university cartography practical on geocoding. It uses concert locations from part of Elton John’s Farewell Yellow Brick Road tour and reveals the tour stops progressively in chronological order, turning a simple geocoded dataset into a visual narrative of movement through space and time."
     ],
     "keywords": [
       "thematic cartography",
@@ -499,11 +542,14 @@ export const projects: Project[] = [
       "practical": "Practical: Spatial data and geocoding",
       "url": "https://k155cvut.github.io/cart/practicals/Geocoding/"
     },
-    "tbd": []
+    "tbd": [],
+    "cardTitle": "Elton John Farewell Tour",
+    "detailSubtitle": "Thematic cartography / music mapping",
+    "hideTeachingContext": true
   }
 ];
 export const workOrder = ['prague-squared', 'joyplot', 'dantes-inferno', 'tropical-nights', 'the-beatles-map', 'elton-john-tour', 'chinese-pavilion-cibulka'];
-export const researchOrder = ['bivariate-joyplot', 'prague-squared', 'beyond-the-horizon', 'vltava-ii', 'two-centuries-of-railways'];
+export const researchOrder = ['prague-squared', 'beyond-the-horizon', 'vltava-ii', 'two-centuries-of-railways', 'bivariate-joyplot'];
 export const homeWork = ['prague-squared', 'joyplot', 'dantes-inferno'];
 export const homeResearch = ['bivariate-joyplot', 'beyond-the-horizon', 'vltava-ii'];
 export function getProject(slug: string): Project {

@@ -51,10 +51,11 @@ for (const file of html) {
       assert.ok(frame.attr('title')?.includes(index === 0 ? 'The Jay' : 'Asibásně'), 'Spotify iframe needs a descriptive artist title');
       for (const [attribute, value] of Object.entries({width:'100%',height:'352',loading:'lazy',frameborder:'0',allow:'autoplay; clipboard-write; encrypted-media; fullscreen; picture-in-picture'})) assert.equal(frame.attr(attribute), value);
     });
-    assert.equal($('main').text().replace(/\s+/g, ' ').trim(), 'Music.');
+    assert.equal($('main p').text().replace(/\s+/g, ' ').trim(), "I'm a lifelong musician, playing in The Jay and Asibásně, composing music for theatre productions, and a member of Činoherní klub since 2022 as a sound engineer.");
   }
   assert.equal($('footer').text().replace(/\s+/g, ' ').trim(), '© 2026 Josef Münzberger');
   assert.equal($('footer a').length, 0);
+  if (route(file).startsWith('/projects/')) assert.equal($('.project-hero figcaption').length, 0, 'Hero captions removed globally');
   const ids = $('[id]').toArray().map(element => $(element).attr('id'));
   assert.equal(ids.length, new Set(ids).size, `Duplicate IDs on ${route(file)}`);
   for (const element of $('[href], [src]').toArray()) {

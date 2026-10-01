@@ -20,7 +20,7 @@ const routes = [
   ['10-tropical-nights', 'Tropical Nights', '/projects/tropical-nights/'],
   ['11-the-beatles-map', 'The Beatles Map', '/projects/the-beatles-map/'],
   ['12-elton-john-tour', 'Elton John – Farewell Yellow Brick Road Tour', '/projects/elton-john-tour/'],
-  ['13-chinese-pavilion-cibulka', 'Chinese Pavilion at Cibulka', '/projects/chinese-pavilion-cibulka/'],
+  ['13-chinese-pavilion-cibulka', 'Chinese Pavilion', '/projects/chinese-pavilion-cibulka/'],
   ['14-beyond-the-horizon', 'Beyond the Horizon', '/projects/beyond-the-horizon/'],
   ['15-chain-bridge', 'The Second Life of the Chain Bridge', '/projects/vltava-ii/'],
   ['16-lost-railway', 'Tracing the Lost Railway', '/projects/two-centuries-of-railways/'],
@@ -41,7 +41,7 @@ const browser = await chromium.launch({
   headless: true,
 });
 const sourceWorkingTreeModified = execFileSync('git', ['diff', 'HEAD', '--', 'src', 'public', 'astro.config.mjs', 'package.json', 'package-lock.json'], {encoding:'utf8'}).length > 0;
-const manifest = { iteration: 2, sourceCommit, sourceWorkingTreeModified, capturedAt: new Date().toISOString(), browser: browser.version(), deviceScaleFactor: 1, screenshots: [], cards: [], externalEmbeds: [] };
+const manifest = { iteration: 3, sourceCommit, sourceWorkingTreeModified, capturedAt: new Date().toISOString(), browser: browser.version(), deviceScaleFactor: 1, screenshots: [], cards: [], viewers: [], externalEmbeds: [] };
 
 async function ready(page) {
   await page.evaluate(async () => {
@@ -91,7 +91,14 @@ try {
       const response = await page.goto(base + path, { waitUntil: 'load' });
       if (response.status() !== 200) throw new Error(`${path}: HTTP ${response.status()}`);
       await ready(page);
-      if (path === '/music/') await loadSpotify(page, viewport);
+      if (path === '/music/') {
+        await loadSpotify(page, viewport);
+        // Chromium may omit an off-screen cross-origin iframe surface from a
+        // full-page screenshot. Keep the requested width, but make both live
+        // players visible to the compositor before capture (no DOM/CSS mocks).
+        await page.setViewportSize({width:viewport.width,height:await page.evaluate(() => document.documentElement.scrollHeight)});
+        await page.waitForTimeout(1500);
+      }
       await page.evaluate(() => window.scrollTo({top:0,behavior:'instant'}));
       await page.evaluate(() => new Promise(resolve => requestAnimationFrame(() => requestAnimationFrame(resolve))));
       const size = await page.evaluate(() => ({ width: innerWidth, scrollWidth: document.documentElement.scrollWidth, height: document.documentElement.scrollHeight }));
@@ -100,8 +107,20 @@ try {
       await page.screenshot({ path: `${output}/${file}`, fullPage: true, animations: 'disabled' });
       const metadata = await sharp(`${output}/${file}`).metadata();
       if (metadata.width !== viewport.width || metadata.height < size.height) throw new Error(`Invalid screenshot dimensions: ${file}`);
-      manifest.screenshots.push({ title, route: path, file, width: metadata.width, height: metadata.height });
+      manifest.screenshots.push({ title, route: path, file, width: metadata.width, height: metadata.height, captureViewportHeight:page.viewportSize().height });
       console.log(`${file}: ${metadata.width} × ${metadata.height}`);
+      const gallery = page.locator('[data-presentation-gallery]');
+      if (await gallery.count()) {
+        await mkdir(`${output}/viewers/${viewport.name}`, {recursive:true});
+        await gallery.locator('[data-gallery-next]').click();
+        const active = gallery.locator('[data-gallery-slide]:visible img');
+        await active.evaluate(image => image.decode());
+        const viewerFile = `viewers/${viewport.name}/${path.split('/')[2]}.png`;
+        await gallery.screenshot({path:`${output}/${viewerFile}`,animations:'disabled'});
+        const viewerMetadata = await sharp(`${output}/${viewerFile}`).metadata();
+        manifest.viewers.push({title,route:path,viewport:viewport.name,viewportWidth:viewport.width,file:viewerFile,width:viewerMetadata.width,height:viewerMetadata.height,position:await gallery.locator('[data-gallery-counter]').innerText(),image:await active.getAttribute('src')});
+      }
+      if (path === '/music/') await page.setViewportSize({width:viewport.width,height:viewport.height});
     }
     if (viewport.name !== 'tablet') {
       await mkdir(`${output}/cards/${viewport.name}`, { recursive: true });
@@ -125,7 +144,7 @@ try {
     if (errors.length) throw new Error(errors.join('\n'));
     await context.close();
   }
-  if (manifest.screenshots.length !== 48 || manifest.cards.length !== 22) throw new Error('Incomplete review package');
+  if (manifest.screenshots.length !== 48 || manifest.cards.length !== 22 || manifest.viewers.length !== 6) throw new Error('Incomplete review package');
   await writeFile(`${output}/manifest.json`, JSON.stringify(manifest, null, 2) + '\n');
 } finally {
   await browser.close();

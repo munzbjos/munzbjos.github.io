@@ -25,10 +25,22 @@ for (const block of blocks) {
   test(`approved wording and metadata preserved: ${title}`, () => {
     const project = getProject(metadata.Slug);
     assert.equal(project.title, title);
-    for (const [key, source] of Object.entries({year: 'Year', author: 'Author', role: 'Role', type: 'Type', location: 'Location', project: 'Project', funding: 'Funding', displayStatus: 'Display status', cardLabel: 'Card label', detailSubtitle: 'Detail subtitle'})) {
+    for (const [key, source] of Object.entries({year: 'Year', author: 'Author', role: 'Role', type: 'Type', location: 'Location', project: 'Project', funding: 'Funding', displayStatus: 'Display status', cardLabel: 'Card label', cardTitle: 'Card title', detailSubtitle: 'Detail subtitle'})) {
       assert.equal(project[key], metadata[source]);
     }
     assert.deepEqual(project.sections, metadata.Section.split(', '));
+    for (const [key, name] of Object.entries({hideLocation: 'Hide location', hideFunding: 'Hide funding', hideCredits: 'Hide credits', hideTeachingContext: 'Hide teaching context'})) {
+      assert.equal(project[key], metadata[name] === undefined ? undefined : metadata[name] === 'true');
+    }
+    for (const [key, name] of Object.entries({recognitions: 'Linked recognitions', studies: 'User studies', bookFeatures: 'Book features'})) {
+      const text = section(block, name);
+      assert.equal((project[key] ?? []).length, list(block, name).length);
+      for (const item of project[key] ?? []) {
+        assert.ok(text.includes(item.title));
+        assert.ok(text.includes(item.url));
+        if (item.description) assert.ok(text.includes(item.description));
+      }
+    }
     assert.equal(project.shortDescription, section(block, 'Short description'));
     assert.deepEqual(project.extendedNote, section(block, 'Extended note').split('\n\n').map(strip));
     for (const [key, name] of Object.entries({keywords: 'Keywords', tools: 'Tools', awards: 'Awards', dataCredits: 'Data', projectWebsites: 'Project website'})) {
@@ -51,7 +63,7 @@ for (const block of blocks) {
 
 test('curatorial order and cross-listing are intentional', () => {
   assert.deepEqual(workOrder, ['prague-squared', 'joyplot', 'dantes-inferno', 'tropical-nights', 'the-beatles-map', 'elton-john-tour', 'chinese-pavilion-cibulka']);
-  assert.deepEqual(researchOrder, ['bivariate-joyplot', 'prague-squared', 'beyond-the-horizon', 'vltava-ii', 'two-centuries-of-railways']);
+  assert.deepEqual(researchOrder, ['prague-squared', 'beyond-the-horizon', 'vltava-ii', 'two-centuries-of-railways', 'bivariate-joyplot']);
   assert.deepEqual(homeWork, workOrder.slice(0, 3));
   assert.deepEqual(homeResearch, ['bivariate-joyplot', 'beyond-the-horizon', 'vltava-ii']);
   for (const slug of workOrder) assert.ok(getProject(slug).sections.includes('Work'));
@@ -82,7 +94,36 @@ test('iteration two display labels do not discard richer classifications', () =>
   assert.equal(horizon.cardLabel, 'Travel networks');
   assert.equal(horizon.type, 'Historical cartography / digital humanities / HGIS / spatial data visualization');
   assert.deepEqual(projects.filter(project => project.cardLabel).map(project => project.slug), ['beyond-the-horizon', 'dantes-inferno', 'vltava-ii', 'two-centuries-of-railways']);
-  assert.deepEqual(projects.filter(project => project.detailSubtitle).map(project => project.slug), ['dantes-inferno']);
+  assert.deepEqual(projects.filter(project => project.detailSubtitle).map(project => project.slug), ['beyond-the-horizon', 'dantes-inferno', 'vltava-ii', 'two-centuries-of-railways', 'chinese-pavilion-cibulka', 'tropical-nights', 'elton-john-tour']);
+});
+
+test('round three presentation and recognition additions preserve source distinctions', () => {
+  const prague = getProject('prague-squared');
+  assert.equal(prague.hideLocation, true);
+  assert.equal(prague.location, 'Prague, Czechia');
+  assert.equal(prague.recognitions[0].title, 'Runner-up — Best Map Award 2025, Journal of Maps');
+  assert.equal(prague.publications.length, 1);
+  const bivariate = getProject('bivariate-joyplot');
+  assert.equal(bivariate.studies[0].url, 'https://joyplots.onmaps.cz/');
+  assert.equal(bivariate.publications.length, 1);
+  const dante = getProject('dantes-inferno');
+  assert.equal(dante.bookFeatures.length, 2);
+  assert.equal(dante.awards.length, 3);
+  const beatles = getProject('the-beatles-map');
+  assert.match(beatles.shortDescription, /map poster/);
+  assert.doesNotMatch(beatles.shortDescription + beatles.extendedNote.join(' '), /series/);
+  const elton = getProject('elton-john-tour');
+  assert.equal(elton.cardTitle, 'Elton John Farewell Tour');
+  assert.equal(elton.extendedNote.length, 1);
+  assert.ok(elton.extendedNote[0].startsWith('The map animation was developed'));
+  assert.equal(elton.hideTeachingContext, true);
+  assert.ok(elton.teachingContext);
+  assert.equal(getProject('chinese-pavilion-cibulka').title, 'Chinese Pavilion');
+  for (const project of projects) {
+    for (const tool of project.tools.filter(tool => tool.startsWith('ArcGIS Pro'))) assert.equal(tool, 'ArcGIS Pro');
+    for (const item of [...project.recognitions ?? [], ...project.studies ?? [], ...project.bookFeatures ?? []]) assert.equal(new URL(item.url).protocol, 'https:');
+  }
+  assert.deepEqual(researchOrder.map(slug => parseInt(getProject(slug).year)), [2025, 2024, 2023, 2023, 2022]);
 });
 
 test('StoryMap contributions are foregrounded while research context is preserved', () => {

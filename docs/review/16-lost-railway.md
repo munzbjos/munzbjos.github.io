@@ -1,8 +1,8 @@
-# Tracing the Lost Railway — vizuální review 2
+# Tracing the Lost Railway — vizuální review 3
 
 [← Přehled všech stránek](README.md) · [Samostatné project cards](cards/README.md)
 
-Druhá iterace podle change requestu. Všechny snímky jsou full-page, DPR 1. Původní obrazové soubory nebyly měněny.
+Třetí iterace podle [Round 3 change requestu](../REDESIGN_CHANGE_REQUEST_ROUND3.md). Všechny snímky jsou full-page, DPR 1. Originály jsme při implementaci neupravovali; aktuální podklady zahrnují také soubory dodané či nahrazené upstream.
 
 ## Desktop — 1440 px
 
