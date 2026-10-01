@@ -382,7 +382,6 @@ Created within the Two Centuries of Railways in the Czech Lands research project
   https://storymaps.arcgis.com/stories/8b9818a23a184da3bf3938391581a0f2
 
 ### Project website
-- https://zeleznice.namapach.cz/
 - https://railways.onmaps.cz/
 
 ### Media
