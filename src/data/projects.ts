@@ -381,7 +381,6 @@ export const projects: Project[] = [
       }
     ],
     "projectWebsites": [
-      "https://zeleznice.namapach.cz/",
       "https://railways.onmaps.cz/"
     ],
     "awards": [],
