@@ -1,0 +1,10 @@
+---
+import { Image, getImage } from 'astro:assets';
+import type { Visual } from '../data/media';
+interface Props { visuals: Visual[] }
+const { visuals } = Astro.props;
+const images = await Promise.all(visuals.map(async visual => ({...visual, full:await getImage({src:visual.image,width:Math.min(2400,visual.image.width),format:'webp',quality:90})})));
+---
+<div class="gallery">
+  {images.map(visual => <figure><a href={visual.full.src} aria-label={`Open larger image: ${visual.caption}`}><Image src={visual.image} alt={visual.alt} widths={[600,1000,1600]} sizes="(max-width: 640px) 100vw, 80vw" format="webp" quality={85} loading="lazy" /></a><figcaption>{visual.caption} <span aria-hidden="true">↗</span></figcaption></figure>)}
+</div>

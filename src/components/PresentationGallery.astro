@@ -1,0 +1,59 @@
+---
+import { Image } from 'astro:assets';
+import type { Visual } from '../data/media';
+interface Props { visuals: Visual[]; label: string }
+const { visuals, label } = Astro.props;
+---
+<div class="presentation-gallery" data-presentation-gallery tabindex="0" role="region" aria-label={`${label} gallery`} aria-roledescription="carousel">
+  <div class="presentation-window">
+    {visuals.map((visual, index) => <figure data-gallery-slide hidden={index !== 0} role="group" aria-label={`${index + 1} of ${visuals.length}`}>
+      <Image src={visual.image} alt={visual.alt} widths={[600,1000,1600,2200]} sizes="(max-width: 1440px) 90vw, 1296px" format="webp" quality={88} loading="lazy" />
+      <figcaption>{visual.caption}</figcaption>
+    </figure>)}
+  </div>
+  <div class="gallery-navigation" data-gallery-controls hidden>
+    <button type="button" data-gallery-prev disabled>Previous</button>
+    <span class="small" data-gallery-counter aria-live="polite" aria-atomic="true">1 / {visuals.length}</span>
+    <button type="button" data-gallery-next disabled={visuals.length < 2}>Next</button>
+  </div>
+  <noscript><ul class="plain-list">{visuals.map(visual => <li><a href={visual.image.src}>{visual.caption}</a></li>)}</ul></noscript>
+</div>
+<script>
+  document.querySelectorAll<HTMLElement>('[data-presentation-gallery]').forEach(gallery => {
+    const slides = [...gallery.querySelectorAll<HTMLElement>('[data-gallery-slide]')];
+    const previous = gallery.querySelector<HTMLButtonElement>('[data-gallery-prev]')!;
+    const next = gallery.querySelector<HTMLButtonElement>('[data-gallery-next]')!;
+    const counter = gallery.querySelector<HTMLElement>('[data-gallery-counter]')!;
+    let index = 0;
+    gallery.querySelector<HTMLElement>('[data-gallery-controls]')!.hidden = false;
+    const show = (target: number) => {
+      const active = document.activeElement;
+      index = Math.max(0, Math.min(slides.length - 1, target));
+      slides.forEach((slide, position) => { slide.hidden = position !== index; });
+      previous.disabled = index === 0;
+      next.disabled = index === slides.length - 1;
+      if ((active === previous && previous.disabled) || (active === next && next.disabled)) gallery.focus({preventScroll:true});
+      counter.textContent = `${index + 1} / ${slides.length}`;
+    };
+    previous.addEventListener('click', () => show(index - 1));
+    next.addEventListener('click', () => show(index + 1));
+    gallery.addEventListener('keydown', event => {
+      if (event.altKey || event.ctrlKey || event.metaKey) return;
+      const targets: Record<string, number> = { ArrowLeft: index - 1, ArrowRight: index + 1, Home: 0, End: slides.length - 1 };
+      if (!(event.key in targets)) return;
+      event.preventDefault();
+      show(targets[event.key]);
+    });
+  });
+</script>
+<style>
+  .presentation-gallery { width: 100%; }
+  .presentation-gallery:focus-visible { outline: 2px solid var(--accent, #365342); outline-offset: 6px; }
+  [data-gallery-slide] { margin: 0; }
+  [data-gallery-slide][hidden], [data-gallery-controls][hidden] { display: none; }
+  [data-gallery-slide] img { display: block; width: 100%; height: auto; aspect-ratio: 16 / 9; object-fit: contain; background: #242823; }
+  figcaption { padding-top: .65rem; color: var(--muted, #62675e); font-size: .85rem; }
+  .gallery-navigation { display: flex; align-items: center; justify-content: space-between; gap: 1rem; margin-top: .6rem; }
+  button { min-height: 44px; min-width: 84px; padding: .5rem .75rem; border: 1px solid currentColor; background: transparent; color: inherit; font: inherit; cursor: pointer; }
+  button:disabled { opacity: .45; cursor: default; }
+</style>

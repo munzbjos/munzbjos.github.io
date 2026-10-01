@@ -1,0 +1,8 @@
+---
+import ProjectCard from './ProjectCard.astro';
+interface Props { slugs: string[]; editorial?: boolean; compact?: boolean; priority?: boolean; headingLevel?: 'h2' | 'h3' }
+const {slugs, editorial = false, compact = false, priority = false, headingLevel = 'h3'} = Astro.props;
+---
+<div class:list={['project-grid',{editorial,compact}]}>
+  {slugs.map((slug,index) => <ProjectCard slug={slug} priority={priority && index === 0} wide={editorial && index === 0} compact={compact} headingLevel={headingLevel} />)}
+</div>

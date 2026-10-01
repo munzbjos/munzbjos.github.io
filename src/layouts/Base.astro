@@ -1,0 +1,46 @@
+---
+import '@fontsource-variable/inter/wght.css';
+import '../styles/global.css';
+import { getImage } from 'astro:assets';
+import { media } from '../data/media';
+interface Props { title?: string; description?: string; section?: string; image?: import('astro').ImageMetadata; noindex?: boolean; canonicalPath?: string }
+const { title, description = 'Josef Münzberger — Cartographer, Researcher, Educator. Thematic cartography, spatial visualization and digital storytelling.', section, image = media['prague-squared'].cover.image, noindex = false, canonicalPath } = Astro.props;
+const pageTitle = title ? `${title} — Josef Münzberger` : 'Josef Münzberger — Cartographer · Researcher · Educator';
+const canonical = new URL(canonicalPath ?? Astro.url.pathname, Astro.site);
+const socialImage = await getImage({src:image,width:1200,format:'jpg'});
+const indexable = import.meta.env.PUBLIC_INDEXABLE === 'true';
+const person = { '@context':'https://schema.org', '@type':'Person', name:'Josef Münzberger', url:Astro.site?.href, jobTitle:'Cartographer · Researcher · Educator', email:'josef.munzberger@fsv.cvut.cz', affiliation:{'@type':'Organization',name:'Department of Geomatics, Czech Technical University in Prague'} };
+---
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <title>{pageTitle}</title>
+    <meta name="description" content={description} />
+    <meta name="robots" content={indexable ? (noindex ? 'noindex,follow' : 'index,follow') : 'noindex,nofollow'} />
+    <link rel="canonical" href={canonical} />
+    <link rel="icon" type="image/svg+xml" href="/favicon.svg" />
+    <meta name="theme-color" content="#f5f4ef" />
+    <meta property="og:type" content="website" />
+    <meta property="og:title" content={pageTitle} />
+    <meta property="og:description" content={description} />
+    <meta property="og:url" content={canonical} />
+    <meta property="og:image" content={new URL(socialImage.src, Astro.site)} />
+    <meta name="twitter:card" content="summary_large_image" />
+    <script type="application/ld+json" set:html={JSON.stringify(person).replace(/</g, '\\u003c')} />
+  </head>
+  <body>
+    <a class="skip-link" href="#main">Skip to content</a>
+    <header class="site-header shell">
+      <a class="brand" href="/" aria-label="Josef Münzberger — home">Josef Münzberger<span class="brand-dot" aria-hidden="true">.</span></a>
+      <nav aria-label="Main navigation">
+        {['Work','Research','About','Music'].map(item => <a href={`/${item.toLowerCase()}/`} aria-current={section === item ? 'page' : undefined}>{item}</a>)}
+      </nav>
+    </header>
+    <main id="main" class="shell"><slot /></main>
+    <footer class="site-footer shell">
+      <p class="footer-note">© 2026 Josef Münzberger</p>
+    </footer>
+  </body>
+</html>

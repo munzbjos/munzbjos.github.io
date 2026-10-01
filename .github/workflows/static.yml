@@ -1,5 +1,5 @@
-# Simple workflow for deploying static content to GitHub Pages
-name: Deploy static content to Pages
+# Publish only the generated Astro site, never the source repository.
+name: Build and deploy Astro to Pages
 
 on:
   # Runs on pushes targeting the default branch
@@ -22,22 +22,41 @@ concurrency:
   cancel-in-progress: false
 
 jobs:
-  # Single deploy job since we're just deploying
+  # Build and deployment are gated to the production source branch.
   deploy:
+    # Safety gate: manual dispatch from redesign must never publish a preview.
+    if: github.ref == 'refs/heads/gh-pages'
     environment:
       name: github-pages
       url: ${{ steps.deployment.outputs.page_url }}
     runs-on: ubuntu-latest
+    env:
+      PUBLIC_INDEXABLE: 'true'
     steps:
       - name: Checkout
         uses: actions/checkout@v4
+        with:
+          # Pin the exact gh-pages commit that triggered this run.
+          ref: ${{ github.sha }}
+      - name: Setup Node
+        uses: actions/setup-node@v4
+        with:
+          node-version: '22'
+          cache: npm
+      - name: Install locked dependencies
+        run: npm ci
+      - name: Check source and content
+        run: npm run check && npm test
+      - name: Build indexable production site
+        run: npm run build
+      - name: Validate production output
+        run: node scripts/check-build.mjs && git diff --check
       - name: Setup Pages
         uses: actions/configure-pages@v5
       - name: Upload artifact
-        uses: actions/upload-pages-artifact@v3
+        uses: actions/upload-pages-artifact@v4
         with:
-          # Upload entire repository
-          path: '.'
+          path: dist/
       - name: Deploy to GitHub Pages
         id: deployment
         uses: actions/deploy-pages@v4
