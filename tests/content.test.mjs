@@ -63,7 +63,7 @@ for (const block of blocks) {
 
 test('curatorial order and cross-listing are intentional', () => {
   assert.deepEqual(workOrder, ['prague-squared', 'joyplot', 'dantes-inferno', 'tropical-nights', 'the-beatles-map', 'elton-john-tour', 'chinese-pavilion-cibulka']);
-  assert.deepEqual(researchOrder, ['prague-squared', 'beyond-the-horizon', 'vltava-ii', 'two-centuries-of-railways', 'bivariate-joyplot']);
+  assert.deepEqual(researchOrder, ['bivariate-joyplot', 'prague-squared', 'beyond-the-horizon', 'vltava-ii', 'two-centuries-of-railways']);
   assert.deepEqual(homeWork, workOrder.slice(0, 3));
   assert.deepEqual(homeResearch, ['bivariate-joyplot', 'beyond-the-horizon', 'vltava-ii']);
   for (const slug of workOrder) assert.ok(getProject(slug).sections.includes('Work'));
@@ -123,7 +123,8 @@ test('round three presentation and recognition additions preserve source distinc
     for (const tool of project.tools.filter(tool => tool.startsWith('ArcGIS Pro'))) assert.equal(tool, 'ArcGIS Pro');
     for (const item of [...project.recognitions ?? [], ...project.studies ?? [], ...project.bookFeatures ?? []]) assert.equal(new URL(item.url).protocol, 'https:');
   }
-  assert.deepEqual(researchOrder.map(slug => parseInt(getProject(slug).year)), [2025, 2024, 2023, 2023, 2022]);
+  // FINAL explicit curatorial order overrides Round 3's year sorting.
+  assert.deepEqual(researchOrder, ['bivariate-joyplot', 'prague-squared', 'beyond-the-horizon', 'vltava-ii', 'two-centuries-of-railways']);
 });
 
 test('StoryMap contributions are foregrounded while research context is preserved', () => {

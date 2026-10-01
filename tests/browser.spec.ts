@@ -5,8 +5,8 @@ import { readdirSync } from 'node:fs';
 const projects = readdirSync('dist/projects', { withFileTypes:true }).filter(entry => entry.isDirectory()).map(entry => `/projects/${entry.name}/`);
 const routes = ['/', '/work/', '/research/', '/about/', '/music/', '/404.html', ...projects];
 const spotify = [
-  'https://open.spotify.com/embed/album/0Zgc4sdQv3ArYMS955r1FE?utm_source=generator&theme=0&si=1bc37425d8a34eca',
-  'https://open.spotify.com/embed/track/4r9UAO3vFwWMuy3Fo0jkQq?utm_source=generator&theme=0&si=2cf82103b97a40be',
+  'https://open.spotify.com/embed/artist/1IwLCTxeQ2AAlT0Uu3l3SK?utm_source=generator&theme=0&si=ebf30ef4ec15466b',
+  'https://open.spotify.com/embed/artist/0kw8rWYvTsKrtCRF0vYlMx?utm_source=generator&theme=0&si=21dc2c58cb9a40e9',
 ];
 // Deterministic host-page QA only; actual Spotify playback/live rendering is a
 // separate manual check. We do not claim to audit Spotify's cross-origin UI.
@@ -106,7 +106,7 @@ test('all routes and Sketchfab fallback work without JavaScript', async ({browse
   await expect(page.getByRole('button', {name:/Load interactive/})).toBeHidden();
   await expect(page.locator('main a[href="https://skfb.ly/pNUVq"]').first()).toBeVisible();
   await expect(page.locator('iframe')).toHaveCount(0);
-  for (const [slug, count] of [['prague-squared',4],['beyond-the-horizon',8]] as const) {
+  for (const [slug, count] of [['prague-squared',4],['beyond-the-horizon',8],['joyplot',6]] as const) {
     await page.goto(`http://127.0.0.1:4321/projects/${slug}/`);
     const gallery = page.locator('[data-presentation-gallery]');
     await expect(gallery.locator('[data-gallery-slide]:visible')).toHaveCount(1);
@@ -143,7 +143,7 @@ test('Work and Research have title-only intros and specific card labels', async 
   await expect(page.getByText('Maps, music & models', {exact:true})).toHaveCount(0);
   await page.goto('/research/');
   await expect(page.locator('.page-intro')).toHaveText('Research.');
-  expect(await page.locator('[data-project]').evaluateAll(elements => elements.map(element => element.getAttribute('data-project')))).toEqual(['prague-squared','beyond-the-horizon','vltava-ii','two-centuries-of-railways','bivariate-joyplot']);
+  expect(await page.locator('[data-project]').evaluateAll(elements => elements.map(element => element.getAttribute('data-project')))).toEqual(['bivariate-joyplot','prague-squared','beyond-the-horizon','vltava-ii','two-centuries-of-railways']);
   await expect(page.locator('[data-project="beyond-the-horizon"] .card-meta')).toContainText('Travel networks');
   for (const [slug,title] of [['vltava-ii','The Second Life of the Chain Bridge'],['two-centuries-of-railways','Tracing the Lost Railway']]) {
     await expect(page.locator(`[data-project="${slug}"] .card-title`)).toContainText(title);
@@ -159,9 +159,9 @@ test('reviewed details show exact label and hero/gallery changes', async ({page}
   await expect(page.locator('.project-hero img')).toHaveAttribute('alt','Overlapping ridge profiles map elevation and population across Czechia.');
   await expect(page.locator('.project-hero figcaption')).toHaveCount(0);
   await expect(page.locator('.project-hero img')).toHaveAttribute('src',/\/joy[._]/);
-  await expect(page.locator('.gallery figure').first().locator('img')).toHaveAttribute('alt','White elevation ridgelines trace Martinique on a lavender background.');
-  await expect(page.locator('.gallery figure').first().locator('img')).toHaveAttribute('src',/JoyMartinique/);
-  await expect(page.locator('.gallery figcaption')).toHaveText(['Martinique ↗','Dominica ↗','Grenada ↗']);
+  await expect(page.locator('[data-presentation-gallery]')).toHaveCount(1);
+  await expect(page.locator('[data-gallery-slide] img[src*="/joy."]')).toHaveCount(0);
+  await expect(page.locator('[data-gallery-slide]').nth(3).locator('img')).toHaveAttribute('alt','White elevation ridgelines trace Martinique on a lavender background.');
 });
 
 test('About preserves exactly the practice blocks and Connect links in responsive order', async ({page}) => {
@@ -189,7 +189,7 @@ test('About preserves exactly the practice blocks and Connect links in responsiv
   expect((await connect.boundingBox())!.y).toBeGreaterThan((await page.getByText(blocks[2][1], {exact:true}).boundingBox())!.y);
 });
 
-test('Music contains approved intro and unchanged stacked lazy Spotify players', async ({page}) => {
+test('Music contains approved intro and exact FINAL artist Spotify players', async ({page}) => {
   await page.goto('/music/');
   await expect(page.locator('main h1')).toHaveText('Music.');
   await expect(page.locator('main p')).toHaveText("I'm a lifelong musician, playing in The Jay and Asibásně, composing music for theatre productions, and a member of Činoherní klub since 2022 as a sound engineer.");
@@ -201,6 +201,9 @@ test('Music contains approved intro and unchanged stacked lazy Spotify players',
   for (let index=0;index<2;index++) {
     await expect(frames.nth(index)).toHaveAttribute('src',spotify[index]);
     await expect(frames.nth(index)).toHaveAttribute('title',index === 0 ? /The Jay/ : /Asibásně/);
+    await expect(frames.nth(index)).toHaveAttribute('data-testid','embed-iframe');
+    await expect(frames.nth(index)).toHaveAttribute('allowfullscreen','');
+    expect(await frames.nth(index).evaluate(element => getComputedStyle(element).borderRadius)).toBe('12px');
     for (const [attribute,value] of Object.entries({width:'100%',height:'352',loading:'lazy',frameborder:'0',allow:'autoplay; clipboard-write; encrypted-media; fullscreen; picture-in-picture'})) await expect(frames.nth(index)).toHaveAttribute(attribute,value);
   }
   for (const width of [1440,768,390,320]) {
@@ -218,6 +221,7 @@ test('Music contains approved intro and unchanged stacked lazy Spotify players',
 for (const [slug, names] of [
   ['prague-squared',['ps1','ps2','ps3','ps5']],
   ['beyond-the-horizon',['C_overview','C_detail','C_detail2','D_overview','D_detail','E_overview','E_detail','S_overview']],
+  ['joyplot',['JoyDominica','JoyGrenada','JoyGuadeloupe','JoyMartinique','JoyStLucia','JoyStVincent']],
 ] as const) {
   test(`presentation gallery finite keyboard controls and exact map order: ${slug}`, async ({page}) => {
     await page.goto(`/projects/${slug}/`);

@@ -549,7 +549,8 @@ export const projects: Project[] = [
   }
 ];
 export const workOrder = ['prague-squared', 'joyplot', 'dantes-inferno', 'tropical-nights', 'the-beatles-map', 'elton-john-tour', 'chinese-pavilion-cibulka'];
-export const researchOrder = ['prague-squared', 'beyond-the-horizon', 'vltava-ii', 'two-centuries-of-railways', 'bivariate-joyplot'];
+// Explicit curatorial order from REDESIGN_CHANGE_REQUEST_FINAL; never sort by year.
+export const researchOrder = ['bivariate-joyplot', 'prague-squared', 'beyond-the-horizon', 'vltava-ii', 'two-centuries-of-railways'];
 export const homeWork = ['prague-squared', 'joyplot', 'dantes-inferno'];
 export const homeResearch = ['bivariate-joyplot', 'beyond-the-horizon', 'vltava-ii'];
 export function getProject(slug: string): Project {

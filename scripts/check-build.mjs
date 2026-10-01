@@ -11,8 +11,8 @@ assert.equal(html.length, 17, 'Expected homepage, four sections, eleven projects
 const route = file => '/' + relative(root, file).replace(/index\.html$/, '');
 const site = 'https://munzbjos.github.io';
 const spotify = [
-  'https://open.spotify.com/embed/album/0Zgc4sdQv3ArYMS955r1FE?utm_source=generator&theme=0&si=1bc37425d8a34eca',
-  'https://open.spotify.com/embed/track/4r9UAO3vFwWMuy3Fo0jkQq?utm_source=generator&theme=0&si=2cf82103b97a40be',
+  'https://open.spotify.com/embed/artist/1IwLCTxeQ2AAlT0Uu3l3SK?utm_source=generator&theme=0&si=ebf30ef4ec15466b',
+  'https://open.spotify.com/embed/artist/0kw8rWYvTsKrtCRF0vYlMx?utm_source=generator&theme=0&si=21dc2c58cb9a40e9',
 ];
 let references = 0;
 function localTarget(value, current) {
@@ -49,6 +49,9 @@ for (const file of html) {
       const frame = $(element);
       assert.equal(frame.attr('src'), spotify[index]);
       assert.ok(frame.attr('title')?.includes(index === 0 ? 'The Jay' : 'Asibásně'), 'Spotify iframe needs a descriptive artist title');
+      assert.equal(frame.attr('data-testid'), 'embed-iframe');
+      assert.ok(frame.is('[allowfullscreen]'));
+      assert.match(frame.attr('style') ?? '', /border-radius:\s*12px/);
       for (const [attribute, value] of Object.entries({width:'100%',height:'352',loading:'lazy',frameborder:'0',allow:'autoplay; clipboard-write; encrypted-media; fullscreen; picture-in-picture'})) assert.equal(frame.attr(attribute), value);
     });
     assert.equal($('main p').text().replace(/\s+/g, ' ').trim(), "I'm a lifelong musician, playing in The Jay and Asibásně, composing music for theatre productions, and a member of Činoherní klub since 2022 as a sound engineer.");

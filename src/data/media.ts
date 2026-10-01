@@ -16,6 +16,9 @@ import joy from '../../portfolio/joyplot/JoyMartinique.png';
 import joyCzech from '../../portfolio/joyplot/joy.png';
 import joyDominica from '../../portfolio/joyplot/JoyDominica.png';
 import joyGrenada from '../../portfolio/joyplot/JoyGrenada.png';
+import joyGuadeloupe from '../../portfolio/joyplot/JoyGuadeloupe.png';
+import joyStLucia from '../../portfolio/joyplot/JoyStLucia.png';
+import joyStVincent from '../../portfolio/joyplot/JoyStVincent.png';
 import bivariate from '../../portfolio/bivariate-joyplot/nature-vs-people.png';
 import dante from '../../portfolio/dante/Dante.png';
 import tropical from '../../portfolio/tropical-nights/did-U-sleep-well.png';
@@ -31,7 +34,7 @@ export interface ProjectMedia { cover: Visual; gallery: Visual[]; presentation?:
 const visual = (image: ImageMetadata, alt: string, caption: string): Visual => ({ image, alt, caption });
 export const media: Record<string, ProjectMedia> = {
   'prague-squared': { cover: visual(prague, 'Four square-cartogram maps comparing Prague’s population, housing and built-up area.', 'Prague Squared — four perspectives on the city.'), fit: 'contain', presentation: true, gallery: [visual(ps1, 'Square-cartogram maps compare demographic projections for Prague.', 'Demographic outlook'), visual(ps2, 'Mint and purple square districts map the age composition of Prague.', 'Age composition'), visual(ps3, 'Pink and turquoise square districts compare occupied and empty housing.', 'Housing'), visual(ps5, 'Yellow and orange square districts show Prague’s built-up area.', 'Built-up area')] },
-  joyplot: { cover: visual(joyCzech, 'Overlapping ridge profiles map elevation and population across Czechia.', 'Elevation / Population in Czechia'), fit: 'contain', gallery: [visual(joy, 'White elevation ridgelines trace Martinique on a lavender background.', 'Martinique'), visual(joyDominica, 'Ridgeline map of the island of Dominica.', 'Dominica'), visual(joyGrenada, 'Ridgeline map of the island of Grenada.', 'Grenada')] },
+  joyplot: { cover: visual(joyCzech, 'Overlapping ridge profiles map elevation and population across Czechia.', 'Elevation / Population in Czechia'), fit: 'contain', presentation: true, gallery: [visual(joyDominica, 'Ridgeline map of the island of Dominica.', 'Dominica'), visual(joyGrenada, 'Ridgeline map of the island of Grenada.', 'Grenada'), visual(joyGuadeloupe, 'Ridgeline map of Guadeloupe.', 'Guadeloupe'), visual(joy, 'White elevation ridgelines trace Martinique on a lavender background.', 'Martinique'), visual(joyStLucia, 'Ridgeline map of the island of Saint Lucia.', 'Saint Lucia'), visual(joyStVincent, 'Ridgeline map of the island of Saint Vincent.', 'Saint Vincent')] },
   'bivariate-joyplot': { cover: visual(bivariate, 'Green and blue ridgelines compare two spatial variables across France, with a legend below.', 'Nature vs. People — bivariate joy plot.'), fit: 'contain', gallery: [] },
   'dantes-inferno': { cover: visual(dante, 'Antique-style map of Europe with concentric circles centred on Jerusalem.', 'Dante’s Inferno — a cartographic interpretation.'), gallery: [] },
   'tropical-nights': { cover: visual(tropical, 'Thematic map titled Did U Sleep Well? showing tropical nights.', 'Did U Sleep Well?'), fit: 'contain', gallery: [] },
