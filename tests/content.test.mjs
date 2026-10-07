@@ -65,7 +65,9 @@ test('curatorial order and cross-listing are intentional', () => {
   assert.deepEqual(workOrder, ['prague-squared', 'joyplot', 'dantes-inferno', 'tropical-nights', 'the-beatles-map', 'elton-john-tour', 'chinese-pavilion-cibulka']);
   assert.deepEqual(researchOrder, ['bivariate-joyplot', 'prague-squared', 'beyond-the-horizon', 'vltava-ii', 'two-centuries-of-railways']);
   assert.deepEqual(homeWork, workOrder.slice(0, 3));
-  assert.deepEqual(homeResearch, ['bivariate-joyplot', 'beyond-the-horizon', 'vltava-ii']);
+  assert.deepEqual(homeResearch, ['bivariate-joyplot', 'beyond-the-horizon']);
+  assert.equal(getProject('bivariate-joyplot').year, '2025–present');
+  assert.equal(getProject('joyplot').year, '2022–present');
   for (const slug of workOrder) assert.ok(getProject(slug).sections.includes('Work'));
   for (const slug of researchOrder) assert.ok(getProject(slug).sections.includes('Research'));
   assert.deepEqual(workOrder.filter(slug => researchOrder.includes(slug)), ['prague-squared']);

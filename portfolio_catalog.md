@@ -104,7 +104,7 @@ The project is presented in Work primarily through its visual outputs and cartog
 
 - **Status:** Locked
 - **Slug:** `bivariate-joyplot`
-- **Year:** 2022–present
+- **Year:** 2025–present
 - **Section:** Research
 - **Display status:** Featured
 - **Author:** Josef Münzberger

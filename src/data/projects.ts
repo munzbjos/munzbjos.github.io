@@ -127,7 +127,7 @@ export const projects: Project[] = [
   {
     "slug": "bivariate-joyplot",
     "title": "Bivariate Joy Plots",
-    "year": "2022–present",
+    "year": "2025–present",
     "sections": [
       "Research"
     ],
@@ -551,7 +551,7 @@ export const workOrder = ['prague-squared', 'joyplot', 'dantes-inferno', 'tropic
 // Explicit curatorial order from REDESIGN_CHANGE_REQUEST_FINAL; never sort by year.
 export const researchOrder = ['bivariate-joyplot', 'prague-squared', 'beyond-the-horizon', 'vltava-ii', 'two-centuries-of-railways'];
 export const homeWork = ['prague-squared', 'joyplot', 'dantes-inferno'];
-export const homeResearch = ['bivariate-joyplot', 'beyond-the-horizon', 'vltava-ii'];
+export const homeResearch = ['bivariate-joyplot', 'beyond-the-horizon'];
 export function getProject(slug: string): Project {
   const project = projects.find(project => project.slug === slug);
   if (!project) throw new Error(`Unknown project: ${slug}`);
